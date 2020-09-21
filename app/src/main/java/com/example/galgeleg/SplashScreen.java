@@ -1,3 +1,4 @@
+//Hjælp til splash screen er fra Aryan Ganotra's youtube kanal https://www.youtube.com/watch?v=D7c4bZzLVxs&ab_channel=AryanGanotra
 package com.example.galgeleg;
 
 import android.content.Intent;
@@ -12,5 +13,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         startActivity(new Intent(this, MainActivity.class));
+        //vigtigt at finish() huskes her, da man ellers kan gå tilbage fra hovedmenuen til splashscreen
+        finish();
     }
 }
