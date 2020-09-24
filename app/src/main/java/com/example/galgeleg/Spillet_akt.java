@@ -62,9 +62,9 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         System.out.println("3");
         gaetteFelt.setText("");
         gaetteFelt.setError(null);
-       /* animation.reset();
+        animation.reset();
         sendSvar.clearAnimation();
-        sendSvar.startAnimation(animation); */
+        sendSvar.startAnimation(animation);
         opdaterSkærm();
         System.out.println("4");
     }
