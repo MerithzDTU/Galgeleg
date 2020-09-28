@@ -63,8 +63,10 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
         gaetteFelt.setText("");
         gaetteFelt.setError(null);
         animation.reset();
-        sendSvar.clearAnimation();
-        sendSvar.startAnimation(animation);
+        if(!logik.getOrdet().contains(bogstav)){
+            sendSvar.clearAnimation();
+            sendSvar.startAnimation(animation);
+        }
         opdaterSkærm();
         System.out.println("4");
     }
