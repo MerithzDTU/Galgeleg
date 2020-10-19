@@ -2,6 +2,7 @@ package com.example.galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 public class Highscore_akt extends AppCompatActivity {

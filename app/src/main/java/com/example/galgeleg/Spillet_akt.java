@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,6 +20,7 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
     Button sendSvar;
     TextView spilInfo;
     EditText gaetteFelt;
+    int maxBogstav = 1;
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
@@ -39,6 +41,7 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
 
         gaetteFelt = findViewById(R.id.gaetteFelt);
         gaetteFelt.setHint("Det er her bogstavet skal gættes!");
+        gaetteFelt.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxBogstav)});
 
         sendSvar = findViewById(R.id.sendSvar);
         sendSvar.setText("Spil");
@@ -72,13 +75,13 @@ public class Spillet_akt extends AppCompatActivity implements View.OnClickListen
     }
     private void opdaterSkærm(){
         spilInfo.setText("Gæt ordet: " + logik.getSynligtOrd());
-        spilInfo.append("\n\nDu har " + logik.getAntalForkerteBogstaver() + " forkerte:" + logik.getBrugteBogstaver());
+        spilInfo.append("\n\nDu har " + logik.getAntalForkerteBogstaver() + " forkerte: " + logik.getForkerteBogstaver());
 
         if(logik.erSpilletVundet()){
-            spilInfo.append("\nDu har vundet");
+            spilInfo.append("\nDu har vundet!");
         }
         if(logik.erSpilletTabt()){
-            spilInfo.append("\nDu har tabt, ordet var: " + logik.getOrdet());
+            spilInfo.append("\nDu har tabt! Ordet var: " + logik.getOrdet());
         }
     }
 

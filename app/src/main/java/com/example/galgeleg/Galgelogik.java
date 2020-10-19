@@ -11,9 +11,10 @@ import java.util.Random;
 
 public class Galgelogik {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
-    ArrayList<String> muligeOrd = new ArrayList<String>();
+    ArrayList<String> muligeOrd = new ArrayList<>();
     private String ordet;
-    private ArrayList<String> brugteBogstaver = new ArrayList<String>();
+    private ArrayList<String> brugteBogstaver = new ArrayList<>();
+    private ArrayList<String> forkerteBogstaver = new ArrayList<>();
     private String synligtOrd;
     private int antalForkerteBogstaver;
     private boolean sidsteBogstavVarKorrekt;
@@ -36,6 +37,10 @@ public class Galgelogik {
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
+    }
+
+    public ArrayList<String> getForkerteBogstaver(){
+        return forkerteBogstaver;
     }
 
     public String getSynligtOrd() {
@@ -70,6 +75,7 @@ public class Galgelogik {
     public void nulstil() {
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
+        forkerteBogstaver.clear();
         spilletErVundet = false;
         spilletErTabt = false;
         if (muligeOrd.isEmpty()) throw new IllegalStateException("Listen over ord er tom!");
@@ -107,6 +113,7 @@ public class Galgelogik {
             // Vi gættede på et bogstav der ikke var i ordet.
             sidsteBogstavVarKorrekt = false;
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
+            forkerteBogstaver.add(bogstav);
             antalForkerteBogstaver = antalForkerteBogstaver + 1;
             if (antalForkerteBogstaver > 6) {
                 spilletErTabt = true;
@@ -117,9 +124,10 @@ public class Galgelogik {
 
     public void logStatus() {
         System.out.println("---------- ");
-        System.out.println("- ordet (skult) = " + ordet);
+        System.out.println("- ordet (skjult) = " + ordet);
         System.out.println("- synligtOrd = " + synligtOrd);
-        System.out.println("- forkerteBogstaver = " + antalForkerteBogstaver);
+        System.out.println("- antalForkerteBogstaver = " + antalForkerteBogstaver);
+        System.out.println("- forkerteBogstaver = " + forkerteBogstaver);
         System.out.println("- brugeBogstaver = " + brugteBogstaver);
         if (spilletErTabt) System.out.println("- SPILLET ER TABT");
         if (spilletErVundet) System.out.println("- SPILLET ER VUNDET");
@@ -162,7 +170,7 @@ public class Galgelogik {
         System.out.println("data = " + data);
         System.out.println("data = " + Arrays.asList(data.split("\\s+")));
         muligeOrd.clear();
-        muligeOrd.addAll(new HashSet<String>(Arrays.asList(data.split(" "))));
+        muligeOrd.addAll(new HashSet<>(Arrays.asList(data.split(" "))));
 
         System.out.println("muligeOrd = " + muligeOrd);
         nulstil();
