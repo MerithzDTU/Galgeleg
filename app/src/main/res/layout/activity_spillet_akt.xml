@@ -7,13 +7,30 @@
     tools:context=".Spillet_akt"
     android:background="@drawable/ic_main_background">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="106dp"
+        android:layout_height="99dp"
+        app:layout_constraintBottom_toTopOf="@+id/ordet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spilInfo"
+        app:srcCompat="@drawable/galge" />
+
     <EditText
         android:id="@+id/gaetteFelt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="72dp"
+        android:layout_height="55dp"
         android:ems="10"
+        android:digits="abcdefghijklmnopqrstuvwxyzæåø"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:typeface="monospace"
+        android:singleLine="true"
+        android:imeOptions="actionSend"
+        android:hint="..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -22,13 +39,29 @@
         app:layout_constraintVertical_bias="0.323" />
 
     <TextView
+        android:id="@+id/ordet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/gaetteFelt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.411" />
+
+    <TextView
         android:id="@+id/spilInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/gaetteFelt"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,14 +69,26 @@
         android:id="@+id/sendSvar"
         android:layout_width="215dp"
         android:layout_height="54dp"
-        android:text="Button"
-        android:onClick="onClick"
+        android:text="SPIL"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gaetteFelt"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.053" />
+
+    <Button
+        android:id="@+id/genstart"
+        android:layout_width="215dp"
+        android:layout_height="54dp"
+        android:text="Genstart"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gaetteFelt"
+        app:layout_constraintVertical_bias="0.053" />
 </androidx.constraintlayout.widget.ConstraintLayout>
