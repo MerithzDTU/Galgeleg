@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package dk.example.galgeleg;
 
 import android.content.Context;
 

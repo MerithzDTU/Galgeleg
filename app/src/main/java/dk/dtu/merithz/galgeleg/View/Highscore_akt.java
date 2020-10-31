@@ -1,9 +1,10 @@
-package com.example.galgeleg;
+package dk.dtu.merithz.galgeleg.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import dk.dtu.merithz.galgeleg.R;
 
 public class Highscore_akt extends AppCompatActivity {
 

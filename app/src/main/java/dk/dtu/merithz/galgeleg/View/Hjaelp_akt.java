@@ -1,8 +1,10 @@
-package com.example.galgeleg;
+package dk.dtu.merithz.galgeleg.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import dk.dtu.merithz.galgeleg.R;
 
 public class Hjaelp_akt extends AppCompatActivity {
 

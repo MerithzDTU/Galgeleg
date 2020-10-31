@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package dk.dtu.merithz.galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import dk.dtu.merithz.galgeleg.R;
+import dk.dtu.merithz.galgeleg.View.Highscore_akt;
+import dk.dtu.merithz.galgeleg.View.Hjaelp_akt;
+import dk.dtu.merithz.galgeleg.View.Spillet_akt;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button spilKnap, hjaelpKnap, highscoreKnap;
@@ -37,11 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this, Hjaelp_akt.class);
             startActivity(i);
         } else if( v == spilKnap){
-            Intent i = new Intent(this,Spillet_akt.class);
+            Intent i = new Intent(this, Spillet_akt.class);
             i.putExtra("velkomst","\n\n Hejsa fra Hovedmenu(MainActivity.class)\n");
             startActivity(i);
         }else if ( v == highscoreKnap){
-            Intent i = new Intent(this,Highscore_akt.class);
+            Intent i = new Intent(this, Highscore_akt.class);
             startActivity(i);
         }
     }

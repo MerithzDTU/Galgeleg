@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.galgeleg"
+        applicationId 'dk.dtu.merithz.galgeleg'
         minSdkVersion 17
         targetSdkVersion 30
         versionCode 1

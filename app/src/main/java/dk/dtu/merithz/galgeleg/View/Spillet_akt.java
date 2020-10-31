@@ -1,4 +1,4 @@
-package com.example.galgeleg;
+package dk.dtu.merithz.galgeleg.View;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +16,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
+import dk.dtu.merithz.galgeleg.Business.GameLogic;
+import dk.dtu.merithz.galgeleg.R;
+
 public class Spillet_akt extends AppCompatActivity {
-    Galgelogik logik = new Galgelogik();
+    GameLogic logik = new GameLogic();
     Animation animation;
     Button sendSvar;
     TextView spilInfo;
@@ -56,7 +58,6 @@ public class Spillet_akt extends AppCompatActivity {
         gaetteFelt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
                     gætBogstav();
                     return true;
