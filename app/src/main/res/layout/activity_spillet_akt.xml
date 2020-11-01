@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Spillet_akt"
+    tools:context=".view.Spillet_akt"
     android:background="@drawable/ic_main_background">
 
     <ImageView

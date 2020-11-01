@@ -1,4 +1,4 @@
-package dk.dtu.merithz.galgeleg.View;
+package dk.dtu.merithz.galgeleg.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import dk.dtu.merithz.galgeleg.R;
 
-public class Highscore_akt extends AppCompatActivity {
+public class Hjaelp_akt extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_highscore_akt);
+        setContentView(R.layout.activity_hjaelp_akt);
     }
 }

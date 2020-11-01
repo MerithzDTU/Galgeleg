@@ -1,4 +1,4 @@
-package dk.dtu.merithz.galgeleg.View;
+package dk.dtu.merithz.galgeleg.view;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import dk.dtu.merithz.galgeleg.Business.GameLogic;
+import dk.dtu.merithz.galgeleg.business.SpilLogik;
 import dk.dtu.merithz.galgeleg.R;
 
 public class Spillet_akt extends AppCompatActivity {
-    GameLogic logik = new GameLogic();
+    SpilLogik logik = new SpilLogik();
     Animation animation;
     Button sendSvar;
     TextView spilInfo;

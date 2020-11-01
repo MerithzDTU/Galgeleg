@@ -1,4 +1,4 @@
-package dk.dtu.merithz.galgeleg.Business;
+package dk.dtu.merithz.galgeleg.business;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class GameLogic {
+public class SpilLogik {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
     ArrayList<String> muligeOrd = new ArrayList<>();
     private String ordet;
@@ -21,7 +21,7 @@ public class GameLogic {
     private boolean spilletErVundet;
     private boolean spilletErTabt;
 
-    public GameLogic() {
+    public SpilLogik() {
         muligeOrd.add("bil");
         muligeOrd.add("computer");
         muligeOrd.add("programmering");

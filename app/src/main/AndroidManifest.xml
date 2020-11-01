@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Hjaelp_akt"></activity>
-        <activity android:name=".View.Highscore_akt" />
-        <activity android:name=".View.Spillet_akt" />
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/nav_graph" />
+
+        <activity android:name=".view.Hjaelp_akt" />
+        <activity android:name=".view.Highscore_akt" />
+        <activity android:name=".view.Spillet_akt" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreen">

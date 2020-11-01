@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import dk.dtu.merithz.galgeleg.R;
-import dk.dtu.merithz.galgeleg.View.Highscore_akt;
-import dk.dtu.merithz.galgeleg.View.Hjaelp_akt;
-import dk.dtu.merithz.galgeleg.View.Spillet_akt;
+import dk.dtu.merithz.galgeleg.view.Highscore_akt;
+import dk.dtu.merithz.galgeleg.view.Hjaelp_akt;
+import dk.dtu.merithz.galgeleg.view.Spillet_akt;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button spilKnap, hjaelpKnap, highscoreKnap;
