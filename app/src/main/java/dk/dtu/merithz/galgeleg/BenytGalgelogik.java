@@ -1,12 +1,12 @@
 package dk.dtu.merithz.galgeleg;
 
-import dk.dtu.merithz.galgeleg.business.SpilLogik;
+import dk.dtu.merithz.galgeleg.business.GalgeLogik;
 
 public class BenytGalgelogik {
 
     public static void main(String[] args) {
 
-        SpilLogik spil = new SpilLogik();
+        GalgeLogik spil = new GalgeLogik();
         spil.nulstil();
         // Kommentér ind for at hente ord fra DR
     /*

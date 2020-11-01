@@ -3,7 +3,6 @@ package dk.dtu.merithz.galgeleg.view;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -12,17 +11,16 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import dk.dtu.merithz.galgeleg.business.SpilLogik;
+import dk.dtu.merithz.galgeleg.business.GalgeLogik;
 import dk.dtu.merithz.galgeleg.R;
 
 public class Spillet_akt extends AppCompatActivity {
-    SpilLogik logik = new SpilLogik();
+    GalgeLogik logik = new GalgeLogik();
     Animation animation;
     Button sendSvar;
     TextView spilInfo;
@@ -31,6 +29,7 @@ public class Spillet_akt extends AppCompatActivity {
     ImageView imageview;
     Button genstart;
     int maxBogstav = 1;
+
 
     private void initialize() {
         animation = AnimationUtils.loadAnimation(this, R.anim.ryst);
@@ -99,12 +98,12 @@ public class Spillet_akt extends AppCompatActivity {
         opdaterSkærm(bogstav);
     }
 
-    private void skjulTastatur(){
-        if(gaetteFelt != null){
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(gaetteFelt.getWindowToken(),0);
-        }
-    }
+//    private void skjulTastatur(){
+//        if(gaetteFelt != null){
+//            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+//            imm.hideSoftInputFromWindow(gaetteFelt.getWindowToken(),0);
+//        }
+//    }
 
     private void opdaterSkærm(String bogstav) {
         ordet.setText(logik.getSynligtOrd());
