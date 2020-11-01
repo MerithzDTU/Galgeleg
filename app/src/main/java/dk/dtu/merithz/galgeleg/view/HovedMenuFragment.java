@@ -31,6 +31,23 @@ public class HovedMenuFragment extends Fragment {
             }
         });
 
+        Button hjaelpKnap = rod.findViewById(R.id.hjaelpKnap);
+        hjaelpKnap.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_hovedMenuFragment_til_hjaelpFragment);
+            }
+        });
+
+        Button highscoreKnap = rod.findViewById(R.id.highscoreKnap);
+        highscoreKnap.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_hovedMenuFragment_til_highscoreFragment);
+            }
+        });
+
+
         return rod;
     }
 }
