@@ -113,7 +113,7 @@ public class Spillet_akt extends AppCompatActivity {
             spilInfo.clearComposingText();
             spilInfo.append("\nDu har vundet med " + logik.getBrugteBogstaver().size() + " forsøg!");
             gaetteFelt.setVisibility(View.INVISIBLE);
-            skjulTastatur();
+            //skjulTastatur();
             sendSvar.setVisibility(View.INVISIBLE);
             genstart.setVisibility(View.VISIBLE);
 
@@ -122,7 +122,7 @@ public class Spillet_akt extends AppCompatActivity {
             spilInfo.append("\nDu har tabt! Ordet var: " + logik.getOrdet());
             gaetteFelt.setVisibility(View.INVISIBLE);
             gaetteFelt.clearFocus();
-            skjulTastatur();
+            //skjulTastatur();
             sendSvar.setVisibility(View.INVISIBLE);
             genstart.setVisibility(View.VISIBLE);
         }

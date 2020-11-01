@@ -11,11 +11,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.actions"
-            android:resource="@xml/nav_graph" />
+            android:resource="@navigation/nav_graph" />
 
-        <activity android:name=".view.Hjaelp_akt" />
-        <activity android:name=".view.Highscore_akt" />
-        <activity android:name=".view.Spillet_akt" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreen">

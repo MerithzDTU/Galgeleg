@@ -24,6 +24,21 @@ public class SpilLogik implements ISpilLogik {
         opdaterSynligtOrd();
     }
 
+    private void checkVundetSpil(){
+        spilletErVundet = true;
+        for (int n = 0; n < ordet.length(); n++){
+            String c = ordet.substring(n, n + 1);
+            if (!brugteBogstaver.contains(c)){
+                spilletErVundet = false;
+                break;
+            }
+        }
+    }
+    private void checkTabtSpil(){
+        if (getAntalForkerteBogstaver() > antalMuligeFejl) {
+            spilletErTabt = true;
+        }
+    }
 
     @Override
     public ArrayList<String> getBrugteBogstaver() {
@@ -95,14 +110,13 @@ public class SpilLogik implements ISpilLogik {
         if (ordet.contains(bogstav)) {
             sidsteBogstavVarKorrekt = true;
             System.out.println("Bogstavet var korrekt: " + bogstav);
+            checkVundetSpil();
         } else {
             // Vi gættede på et bogstav der ikke var i ordet.
             sidsteBogstavVarKorrekt = false;
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
             forkerteBogstaver.add(bogstav);
-            if (getAntalForkerteBogstaver() > antalMuligeFejl) {
-                spilletErTabt = true;
-            }
+            checkTabtSpil();
         }
         opdaterSynligtOrd();
     }
