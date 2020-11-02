@@ -13,5 +13,5 @@ public interface ISpilLogik {
     boolean erSpilletTabt();
     boolean erSpilletSlut();
     void opdaterSynligtOrd();
-    void gætBogstav(String bogstav);
+    boolean gætBogstav(String bogstav);
 }

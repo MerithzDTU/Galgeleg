@@ -11,13 +11,12 @@ public class SpilOpstarter implements ISpilOpstarter {
     private HentOrd hentOrd;
 
     private List<String> muligeord;
-    private int antalMuligeFejl;
     private String aktueltBrugerNavn = "";
 
     SpilLogik spilLogik;
 
 
-
+    //Singleton
     public static SpilOpstarter getInstance(){
         if(instance == null){
             instance = new SpilOpstarter(new HentOrd());
@@ -43,17 +42,9 @@ public class SpilOpstarter implements ISpilOpstarter {
 
     @Override
     public void initSpil(String sværhedsgrad) {
-        if (sværhedsgrad.contains("3")){
-            antalMuligeFejl = 6;
-        } else if (sværhedsgrad.contains("2")){
-            antalMuligeFejl = 5;
-        } else{
-            antalMuligeFejl = 4;
-        }
+
         try{
-            //muligeord = hentOrd.hentOrdFraRegneark(sværhedsgrad);
-            muligeord = hentOrd.hentFakeOrd();
-            System.out.println("Her er vi nu, ved muligeord");
+            muligeord = hentOrd.hentOrdFraRegneark(sværhedsgrad);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -62,7 +53,7 @@ public class SpilOpstarter implements ISpilOpstarter {
     @Override
     public void startSpil() {
         String ordet = muligeord.get(new Random().nextInt(muligeord.size()));
-        spilLogik = new SpilLogik(ordet,antalMuligeFejl);
+        spilLogik = new SpilLogik(ordet);
     }
 
     @Override

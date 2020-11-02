@@ -1,6 +1,5 @@
 package dk.dtu.merithz.galgeleg.view;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -9,11 +8,14 @@ import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import java.util.HashMap;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilLogik;
@@ -24,6 +26,7 @@ public class SpilFragment extends Fragment {
     private final String vokaler = "AEIOUYÆÅØ";
     private final int columnCount = 4;
 
+    HashMap<String, BogstavsKnap> knapper;
     private TextView brugerNavnTekst;
     private ImageView galgemand;
     private TextView gaetteFelt;
@@ -40,6 +43,7 @@ public class SpilFragment extends Fragment {
         gaetteFelt = v.findViewById(R.id.gaetteFelt);
         vokalerGrid = v.findViewById(R.id.vokaler);
         konsonanterGrid = v.findViewById(R.id.konsonanter);
+        knapper = new HashMap<>();
 
         vokalerGrid.setColumnCount(columnCount);
         konsonanterGrid.setColumnCount(columnCount);
@@ -64,6 +68,7 @@ public class SpilFragment extends Fragment {
             bogstavsKnap.setLayoutParams(params);
             bogstavsKnap.setText(bogstav);
             gridLayout.addView(bogstavsKnap);
+            knapper.put(bogstav,bogstavsKnap);
 
             bogstavsKnap.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -90,7 +95,24 @@ public class SpilFragment extends Fragment {
 
     //PROBLEM, skal have fat i metoder fra spilogik, men alt skal håndteres gennem SpilOpstarter???
     private void confirmBogstav(String bogstav, View v){
-        spilLogik.gætBogstav(bogstav);
+        knapper.get(bogstav).setEnabled(false);
+
+        if (spilLogik.gætBogstav(bogstav)){
+            String tekst = "Bogstavet " + bogstav + " var korrekt!";
+            int tid = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(v.getContext(), tekst, tid);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+
+        }else{
+            String tekst = "Bogstavet " + bogstav + " var forkert!";
+            int tid = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(v.getContext(), tekst, tid);
+            toast.setGravity(Gravity.CENTER,0,0);
+            toast.show();
+            opdaterGalgemand();
+        }
+
         if(spilLogik.erSpilletTabt()){
             Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_taberFragment);
         }
@@ -98,5 +120,35 @@ public class SpilFragment extends Fragment {
             Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_vinderFragment);
         }
         gaetteFelt.setText(spilLogik.getSynligtOrd());
+    }
+
+    public void opdaterGalgemand(){
+
+            switch (spilLogik.getAntalForkerteBogstaver()){
+                case 0:
+                    galgemand.setImageResource(R.drawable.galge);
+                    break;
+                case 1:
+                    galgemand.setImageResource(R.drawable.forkert1);
+                    break;
+                case 2:
+                    galgemand.setImageResource(R.drawable.forkert2);
+                    break;
+                case 3:
+                    galgemand.setImageResource(R.drawable.forkert3);
+                    break;
+                case 4:
+                    galgemand.setImageResource(R.drawable.forkert4);
+                    break;
+                case 5:
+                    galgemand.setImageResource(R.drawable.forkert5);
+                    break;
+                case 6:
+                    galgemand.setImageResource(R.drawable.forkert6);
+                    break;
+                default:
+                    galgemand.setImageResource(R.drawable.forkert6);
+                    break;
+            }
     }
 }

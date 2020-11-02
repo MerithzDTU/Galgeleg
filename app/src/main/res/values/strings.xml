@@ -4,7 +4,12 @@
     <string name="vaelg_svaerhedsgrad">Vælg sværhedsgrad</string>
     <string-array name="svaerhedsgrader">
         <item>Let</item>
-        <item>Svær</item>
         <item>Middel</item>
+        <item>Svær</item>
+    </string-array>
+    <string-array name="svaerhedsgraderVærdier">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

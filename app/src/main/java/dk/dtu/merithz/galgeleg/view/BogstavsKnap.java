@@ -9,7 +9,11 @@ import dk.dtu.merithz.galgeleg.R;
 
 public class BogstavsKnap extends androidx.appcompat.widget.AppCompatButton {
 
-
+    @Override
+    public void setEnabled(boolean enabled) {
+        setAlpha(enabled?1:0.5f);
+        super.setEnabled(enabled);
+    }
 
     public BogstavsKnap(Context context) {
         super(context);

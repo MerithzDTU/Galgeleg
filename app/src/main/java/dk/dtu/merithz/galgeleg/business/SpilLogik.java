@@ -6,8 +6,8 @@ import java.util.List;
 import dk.dtu.merithz.galgeleg.data.HentOrd;
 
 public class SpilLogik implements ISpilLogik {
+    private final int antalMuligeFejl = 6;
     private String ordet;
-    private int antalMuligeFejl;
     private ArrayList<String> brugteBogstaver;
     private ArrayList<String> forkerteBogstaver;
     private String synligtOrd;
@@ -16,9 +16,8 @@ public class SpilLogik implements ISpilLogik {
     private boolean spilletErTabt;
 
 
-    public SpilLogik(String ordet, int antalMuligeFejl) {
+    public SpilLogik(String ordet) {
         this.ordet = ordet;
-        this.antalMuligeFejl = antalMuligeFejl;
         brugteBogstaver = new ArrayList<>();
         forkerteBogstaver = new ArrayList<>();
         opdaterSynligtOrd();
@@ -100,15 +99,14 @@ public class SpilLogik implements ISpilLogik {
     }
 
     @Override
-    public void gætBogstav(String b) {
-        if (b.length() != 1) return;
+    public boolean gætBogstav(String b) {
+        if (b.length() != 1) return false;
         String bogstav = b.toLowerCase();
         System.out.println("Der gættes på bogstavet: " + bogstav);
-        if (brugteBogstaver.contains(bogstav)) return;
-        if (spilletErVundet || spilletErTabt) return;
+        if (brugteBogstaver.contains(bogstav)) return false;
+        if (spilletErVundet || spilletErTabt) return false;
 
         brugteBogstaver.add(bogstav);
-
         if (ordet.contains(bogstav)) {
             sidsteBogstavVarKorrekt = true;
             System.out.println("Bogstavet var korrekt: " + bogstav);
@@ -121,5 +119,7 @@ public class SpilLogik implements ISpilLogik {
             checkTabtSpil();
         }
         opdaterSynligtOrd();
+        return sidsteBogstavVarKorrekt;
     }
+
 }
