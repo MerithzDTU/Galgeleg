@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/vinderFragment"
-        android:name="dk.dtu.merithz.galgeleg.view.WinnerFragment"
+        android:name="dk.dtu.merithz.galgeleg.view.VinderFragment"
         android:label="vinder"
         tools:layout="@layout/vinder">
         <action

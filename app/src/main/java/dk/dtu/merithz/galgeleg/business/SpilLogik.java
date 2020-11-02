@@ -40,6 +40,7 @@ public class SpilLogik implements ISpilLogik {
         }
     }
 
+
     @Override
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;
@@ -99,8 +100,9 @@ public class SpilLogik implements ISpilLogik {
     }
 
     @Override
-    public void gætBogstav(String bogstav) {
-        if (bogstav.length() != 1) return;
+    public void gætBogstav(String b) {
+        if (b.length() != 1) return;
+        String bogstav = b.toLowerCase();
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.contains(bogstav)) return;
         if (spilletErVundet || spilletErTabt) return;

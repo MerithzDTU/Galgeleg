@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/brugernavnTekst"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text=""
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/galgemand"
@@ -24,490 +24,61 @@
         android:id="@+id/gaetteFelt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/vokaler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="Vokaler"
-        android:layout_weight="1"
-        />
-
-    <TextView
-        android:id="@+id/konsonanter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:text="Konsonanter"
-        android:layout_weight="0.5"
-        />
+        android:orientation="horizontal"
+        android:weightSum="1">
 
 
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Vokaler"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:id="@+id/vokaler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Konsonanter"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:id="@+id/konsonanter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </LinearLayout>
     </LinearLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
-
-     <!-- 1. Række -->
-        <Button
-            android:id="@+id/aKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:text="A"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
-        <Button
-            android:id="@+id/eKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="16dp"
-            android:text="E"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/aKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <Button
-            android:id="@+id/iKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="16dp"
-            android:text="I"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/eKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <Button
-            android:id="@+id/oKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="16dp"
-            android:text="O"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/iKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <Button
-            android:id="@+id/bKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="16dp"
-            android:text="B"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/oKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="25dp"
-            />
-
-        <Button
-            android:id="@+id/cKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="16dp"
-            android:text="C"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/bKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/dKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="16dp"
-            android:text="D"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/cKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/fKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="16dp"
-            android:text="F"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/dKnap"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="5dp"
-            />
-
-        <!-- 2. Række-->
-        <Button
-            android:id="@+id/uKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:text="U"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/aKnap"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <Button
-            android:id="@+id/yKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Y"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/uKnap"
-            app:layout_constraintTop_toBottomOf="@+id/eKnap"
-            />
-
-        <Button
-            android:id="@+id/aeKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Æ"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/iKnap"
-            app:layout_constraintStart_toEndOf="@id/yKnap"
-            />
-
-        <Button
-            android:id="@+id/oeKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:text="Ø"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/oKnap"
-            app:layout_constraintStart_toEndOf="@id/aeKnap"
-            />
-
-        <Button
-            android:id="@+id/gKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="G"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/oeKnap"
-            app:layout_constraintTop_toBottomOf="@id/bKnap"
-            android:layout_marginLeft="25dp"
-
-            />
-
-        <Button
-            android:id="@+id/hKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="H"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/gKnap"
-            app:layout_constraintTop_toBottomOf="@id/cKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/jKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="J"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/hKnap"
-            app:layout_constraintTop_toBottomOf="@id/cKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/kKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="K"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/jKnap"
-            app:layout_constraintTop_toBottomOf="@id/dKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <!-- 3. Række -->
-        <Button
-            android:id="@+id/aaKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:text="Å"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/uKnap"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-        <Button
-            android:id="@+id/lKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="L"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/aaKnap"
-            app:layout_constraintTop_toBottomOf="@id/gKnap"
-            android:layout_marginStart="160dp"
-            />
-
-        <Button
-            android:id="@+id/mKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="M"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/lKnap"
-            app:layout_constraintTop_toBottomOf="@id/hKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/nKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="N"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/mKnap"
-            app:layout_constraintTop_toBottomOf="@id/jKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/pKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="P"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/nKnap"
-            app:layout_constraintTop_toBottomOf="@id/kKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-
-        <!-- 4. Række -->
-        <Button
-            android:id="@+id/qKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="Q"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/lKnap"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="220dp"
-            />
-
-        <Button
-            android:id="@+id/rKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="R"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/qKnap"
-            app:layout_constraintTop_toBottomOf="@id/mKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/sKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="S"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/rKnap"
-            app:layout_constraintTop_toBottomOf="@id/nKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/tKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="T"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/sKnap"
-            app:layout_constraintTop_toBottomOf="@id/pKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <!-- 5. Række -->
-        <Button
-            android:id="@+id/vKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="V"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/qKnap"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="220dp"
-            />
-
-        <Button
-            android:id="@+id/wKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="W"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/vKnap"
-            app:layout_constraintTop_toBottomOf="@id/rKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/xKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="X"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/wKnap"
-            app:layout_constraintTop_toBottomOf="@id/sKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-        <Button
-            android:id="@+id/zKnap"
-            android:layout_height="40dp"
-            android:layout_width="40dp"
-            android:layout_marginTop="5dp"
-            android:text="Z"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="@color/colorWhite"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/xKnap"
-            app:layout_constraintTop_toBottomOf="@id/tKnap"
-            android:layout_marginLeft="5dp"
-            />
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </LinearLayout>

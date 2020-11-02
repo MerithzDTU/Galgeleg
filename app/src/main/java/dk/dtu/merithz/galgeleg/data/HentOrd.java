@@ -9,6 +9,7 @@ import java.util.List;
 
 public class HentOrd {
 
+
     public static String hentUrl(String url) throws IOException {
         System.out.println("Henter data fra " + url);
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
@@ -49,5 +50,15 @@ public class HentOrd {
             muligeOrd.add(ordet);
         }
         return muligeOrd;
+    }
+
+    public List<String> hentFakeOrd(){
+        return new ArrayList<String>(){
+            {
+                add("ed");
+                add("edd");
+                add("eddy");
+            }
+        };
     }
 }

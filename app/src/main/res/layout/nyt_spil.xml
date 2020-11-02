@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/indtastBrugerNavn_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/indtast_brugernavn"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/brugernavn_ET"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:ems="9"
+        android:inputType="textPersonName"/>
+
+    <TextView
+        android:id="@+id/vaelgSvarhedsgrad_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vaelg_svaerhedsgrad"
+        android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/svaerhedsgradSpinner"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/svaerhedsgrader"
+        />
+
+
 
     <Button
         android:id="@+id/startSpil"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="StartSpil" />
+        android:text="Start Spil"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="25dp"/>
+
+    <ProgressBar
+        android:id="@+id/indlaesningCirkel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
