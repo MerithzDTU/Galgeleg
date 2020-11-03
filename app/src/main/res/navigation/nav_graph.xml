@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/highscoreFragment"
         android:name="dk.dtu.merithz.galgeleg.view.HighScoreFragment"
-        android:label="highscore"
+        android:label="highscoreDTO"
         tools:layout="@layout/highscore" />
     <fragment
         android:id="@+id/spilFragment"

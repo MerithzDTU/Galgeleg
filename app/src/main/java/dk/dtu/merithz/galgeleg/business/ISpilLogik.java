@@ -8,6 +8,7 @@ public interface ISpilLogik {
     String getSynligtOrd();
     String getOrdet();
     int getAntalForkerteBogstaver();
+    int getAntalBrugteBogstaver();
     boolean erSidsteBogstavKorrekt();
     boolean erSpilletVundet();
     boolean erSpilletTabt();

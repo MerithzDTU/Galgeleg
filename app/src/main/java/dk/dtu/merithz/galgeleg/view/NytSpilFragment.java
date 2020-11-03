@@ -23,12 +23,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import dk.dtu.merithz.galgeleg.R;
-import dk.dtu.merithz.galgeleg.business.SpilOpstarter;
+import dk.dtu.merithz.galgeleg.business.SpilHandler;
 
 public class NytSpilFragment extends Fragment {
     Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
     Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
-    SpilOpstarter spilOpstarter = SpilOpstarter.getInstance();
+    SpilHandler spilOpstarter = SpilHandler.getInstance();
 
     @Nullable
     @Override
@@ -62,7 +62,7 @@ public class NytSpilFragment extends Fragment {
                 }else{
                     bgThread.execute(()->{
                         spilOpstarter.setAktueltBrugerNavn(brugernavn);
-                        spilOpstarter.initSpil(svaerhedsgrad);
+                        spilOpstarter.initSpil(svaerhedsgrad, getActivity());
                         uiThread.post(()->{
                             spilOpstarter.startSpil();
                             Navigation.findNavController(v).navigate(R.id.action_nytSpilFragment_til_spilFragment);

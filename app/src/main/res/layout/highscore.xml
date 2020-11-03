@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/highScoresTitle_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Highscores"
+        android:textSize="34sp"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bruger"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_weight="0.5"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Score"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_weight="0.5"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/highscores_RV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    
+    
 </LinearLayout>

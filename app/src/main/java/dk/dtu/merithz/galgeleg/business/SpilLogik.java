@@ -1,9 +1,6 @@
 package dk.dtu.merithz.galgeleg.business;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import dk.dtu.merithz.galgeleg.data.HentOrd;
 
 public class SpilLogik implements ISpilLogik {
     private final int antalMuligeFejl = 6;
@@ -35,7 +32,7 @@ public class SpilLogik implements ISpilLogik {
         }
     }
     private void checkTabtSpil(){
-        if (getAntalForkerteBogstaver() > antalMuligeFejl) {
+        if (getAntalForkerteBogstaver() >= antalMuligeFejl) {
             spilletErTabt = true;
         }
     }
@@ -65,6 +62,9 @@ public class SpilLogik implements ISpilLogik {
     public int getAntalForkerteBogstaver() {
         return forkerteBogstaver.size();
     }
+
+    @Override
+    public int getAntalBrugteBogstaver(){return brugteBogstaver.size();}
 
     @Override
     public boolean erSidsteBogstavKorrekt() {
@@ -119,6 +119,11 @@ public class SpilLogik implements ISpilLogik {
             forkerteBogstaver.add(bogstav);
             checkTabtSpil();
         }
+
+        if (erSpilletSlut()){
+            SpilHandler.getInstance().gemHighscore(getAntalBrugteBogstaver());
+        }
+
         opdaterSynligtOrd();
         return sidsteBogstavVarKorrekt;
     }

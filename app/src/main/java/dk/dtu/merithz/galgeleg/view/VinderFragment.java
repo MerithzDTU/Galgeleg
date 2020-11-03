@@ -16,7 +16,7 @@ import androidx.navigation.Navigation;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilLogik;
-import dk.dtu.merithz.galgeleg.business.SpilOpstarter;
+import dk.dtu.merithz.galgeleg.business.SpilHandler;
 
 public class VinderFragment extends Fragment {
 
@@ -26,7 +26,7 @@ public class VinderFragment extends Fragment {
     private TextView vinderInfo;
     private Button nytspilKnap;
 
-    private SpilOpstarter spilOpstarter = SpilOpstarter.getInstance();
+    private SpilHandler spilOpstarter = SpilHandler.getInstance();
     private SpilLogik spilLogik;
 
     private void initialize(View v){
@@ -42,9 +42,10 @@ public class VinderFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.vinder,container, false);
         initialize(v);
-        brugerNavnVinder.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
         spilLogik = spilOpstarter.getSpilLogik();
-        vinderInfo.setText("Du gættede " + spilLogik.getOrdet() + " på " + spilLogik.getBrugteBogstaver().size() + " forsøg.");
+
+        brugerNavnVinder.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
+        vinderInfo.setText("Du gættede " + spilLogik.getOrdet() + " på " + spilLogik.getAntalBrugteBogstaver() + " forsøg.");
 
         nytspilKnap.setOnClickListener(new View.OnClickListener() {
             @Override

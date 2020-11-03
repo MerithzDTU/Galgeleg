@@ -16,7 +16,7 @@ import androidx.navigation.Navigation;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilLogik;
-import dk.dtu.merithz.galgeleg.business.SpilOpstarter;
+import dk.dtu.merithz.galgeleg.business.SpilHandler;
 
 public class TaberFragment extends Fragment {
 
@@ -26,7 +26,7 @@ public class TaberFragment extends Fragment {
     private TextView rigtigeord;
     private Button nytspilKnap;
 
-    private SpilOpstarter spilOpstarter = SpilOpstarter.getInstance();
+    private SpilHandler spilOpstarter = SpilHandler.getInstance();
     private SpilLogik spilLogik;
 
     private void initialize(View v){

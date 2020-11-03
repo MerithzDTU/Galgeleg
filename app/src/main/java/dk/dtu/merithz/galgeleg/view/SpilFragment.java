@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilLogik;
-import dk.dtu.merithz.galgeleg.business.SpilOpstarter;
+import dk.dtu.merithz.galgeleg.business.SpilHandler;
 
 public class SpilFragment extends Fragment {
     private final String konsonanter = "BCDFGHJKLMNPQRSTVWXZ";
@@ -34,7 +34,7 @@ public class SpilFragment extends Fragment {
     private GridLayout konsonanterGrid;
 
 
-    private SpilOpstarter spilOpstarter = SpilOpstarter.getInstance();
+    private SpilHandler spilOpstarter = SpilHandler.getInstance();
     private SpilLogik spilLogik;
 
     private void initialize(View v){

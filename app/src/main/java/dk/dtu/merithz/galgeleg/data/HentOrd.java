@@ -10,7 +10,6 @@ import java.util.List;
 
 public class HentOrd {
 
-
     public static String hentUrl(String url) throws IOException {
         System.out.println("Henter data fra " + url);
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
