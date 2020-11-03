@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/indtast_brugernavn"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_marginTop="80dp"/>
     <EditText
         android:id="@+id/brugernavn_ET"
         android:layout_width="170dp"
@@ -23,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vaelg_svaerhedsgrad"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="70dp"/>
 
     <Spinner
         android:id="@+id/svaerhedsgradSpinner"
@@ -41,7 +42,7 @@
         android:text="Start Spil"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorWhite"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="150dp"/>
 
     <ProgressBar
         android:id="@+id/indlaesningCirkel"

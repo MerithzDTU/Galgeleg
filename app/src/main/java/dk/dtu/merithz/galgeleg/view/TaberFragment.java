@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -53,6 +54,14 @@ public class TaberFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_taberFragment_til_nytSpilFragment);
             }
         });
+
+        OnBackPressedCallback tilbagekald = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(v).navigate(R.id.action_taberFragment_til_hovedMenuFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),tilbagekald);
 
         return v;
     }

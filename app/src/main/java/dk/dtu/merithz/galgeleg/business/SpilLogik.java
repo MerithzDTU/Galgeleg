@@ -21,6 +21,7 @@ public class SpilLogik implements ISpilLogik {
         brugteBogstaver = new ArrayList<>();
         forkerteBogstaver = new ArrayList<>();
         opdaterSynligtOrd();
+        logStatus();
     }
 
     private void checkVundetSpil(){
@@ -122,4 +123,15 @@ public class SpilLogik implements ISpilLogik {
         return sidsteBogstavVarKorrekt;
     }
 
+    public void logStatus() {
+        System.out.println("---------- ");
+        System.out.println("- ordet (skjult) = " + ordet);
+        System.out.println("- synligtOrd = " + synligtOrd);
+        System.out.println("- antalForkerteBogstaver = " + getAntalForkerteBogstaver());
+        System.out.println("- forkerteBogstaver = " + forkerteBogstaver);
+        System.out.println("- brugeBogstaver = " + brugteBogstaver);
+        if (spilletErTabt) System.out.println("- SPILLET ER TABT");
+        if (spilletErVundet) System.out.println("- SPILLET ER VUNDET");
+        System.out.println("---------- ");
+    }
 }

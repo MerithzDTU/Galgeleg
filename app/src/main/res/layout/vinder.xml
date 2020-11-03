@@ -18,13 +18,13 @@
         android:id="@+id/galgelegVinder"
         android:layout_width="match_parent"
         android:layout_height="206dp"
-        app:srcCompat="@drawable/forkert6"/>
+        app:srcCompat="@drawable/galge_baggrund"/>
 
     <TextView
         android:id="@+id/vinder_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Du tabte."
+        android:text="Du overlevede."
         android:textSize="36sp"
         android:gravity="center"/>
 

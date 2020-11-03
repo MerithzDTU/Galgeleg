@@ -42,7 +42,6 @@ public class SpilOpstarter implements ISpilOpstarter {
 
     @Override
     public void initSpil(String sværhedsgrad) {
-
         try{
             muligeord = hentOrd.hentOrdFraRegneark(sværhedsgrad);
         } catch (Exception e){
@@ -60,5 +59,4 @@ public class SpilOpstarter implements ISpilOpstarter {
     public void genstartSpil() {
 
     }
-
 }
