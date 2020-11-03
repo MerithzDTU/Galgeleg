@@ -63,9 +63,4 @@ public class SpilHandler implements ISpilHandler {
         String ordet = muligeord.get(new Random().nextInt(muligeord.size()));
         spilLogik = new SpilLogik(ordet);
     }
-
-    @Override
-    public void genstartSpil() {
-
-    }
 }

@@ -6,5 +6,4 @@ public interface ISpilHandler {
 
     void initSpil(String sværhedsgrad, Activity activity);
     void startSpil();
-    void genstartSpil();
 }
