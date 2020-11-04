@@ -13,10 +13,9 @@ public class SpilHandler implements ISpilHandler {
     private static SpilHandler instance = null;
     private HentOrd hentOrd;
     private HighscoreSaver highscoreSaver;
+    private SpilLogik spilLogik;
     private List<String> muligeord;
     private String aktueltBrugerNavn = "";
-
-    SpilLogik spilLogik;
 
 
     //Singleton
