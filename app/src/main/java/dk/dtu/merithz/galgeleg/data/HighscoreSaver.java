@@ -23,6 +23,7 @@ public class HighscoreSaver implements IHighscoreSaver{
         editor = sharedPref.edit();
     }
 
+    //Simplest form of factory, even though it generates the one and only kind of highscore
     public static HighscoreSaver fromActivity(Activity activity){
         return new HighscoreSaver(activity.getPreferences(Context.MODE_PRIVATE));
     }

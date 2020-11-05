@@ -18,16 +18,17 @@ public class SpilHandler implements ISpilHandler {
     private String aktueltBrugerNavn = "";
 
 
-    //Singleton
+    //Konstruktør lavet private, så klassen ikke kan blive instantieret
+    private SpilHandler(HentOrd hentOrd) {
+        this.hentOrd = hentOrd;
+    }
+
+    //Singleton, hvis der ingen instans findes af klassen, så laves den her.
     public static SpilHandler getInstance(){
         if(instance == null){
             instance = new SpilHandler(new HentOrd());
         }
         return instance;
-    }
-
-    public SpilHandler(HentOrd hentOrd) {
-        this.hentOrd = hentOrd;
     }
 
     public String getAktueltBrugerNavn(){

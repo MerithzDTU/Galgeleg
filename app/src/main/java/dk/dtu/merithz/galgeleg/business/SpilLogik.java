@@ -1,8 +1,10 @@
 package dk.dtu.merithz.galgeleg.business;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import static dk.dtu.merithz.galgeleg.business.SpilLogikData.SpilLogikStatus;
 
-public class SpilLogik implements ISpilLogik {
+public class SpilLogik extends Observable implements ISpilLogik{
     private final int antalMuligeFejl = 6;
     private String ordet;
     private ArrayList<String> brugteBogstaver;
@@ -11,10 +13,14 @@ public class SpilLogik implements ISpilLogik {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
-
+    protected SpilLogikData data = new SpilLogikData();
 
     public SpilLogik(String ordet) {
         this.ordet = ordet;
+        data.setStatus(SpilLogikStatus.ord);
+        data.setOrdet(ordet);
+        setChanged();
+        notifyObservers(data);
         brugteBogstaver = new ArrayList<>();
         forkerteBogstaver = new ArrayList<>();
         opdaterSynligtOrd();
@@ -30,10 +36,20 @@ public class SpilLogik implements ISpilLogik {
                 break;
             }
         }
+        if (spilletErVundet) {
+            data.setStatus(SpilLogikStatus.vundet);
+            data.setAntalForsøg(String.valueOf(brugteBogstaver.size()));
+            setChanged();
+            notifyObservers(data);
+        }
     }
+
     private void checkTabtSpil(){
         if (getAntalForkerteBogstaver() >= antalMuligeFejl) {
             spilletErTabt = true;
+            data.setStatus(SpilLogikStatus.tabt);
+            setChanged();
+            notifyObservers(data);
         }
     }
 

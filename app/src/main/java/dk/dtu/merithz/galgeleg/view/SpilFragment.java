@@ -16,12 +16,16 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilLogik;
 import dk.dtu.merithz.galgeleg.business.SpilHandler;
+import dk.dtu.merithz.galgeleg.business.SpilLogikData;
+import static dk.dtu.merithz.galgeleg.business.SpilLogikData.SpilLogikStatus;
 
-public class SpilFragment extends Fragment {
+public class SpilFragment extends Fragment implements Observer {
     private final String konsonanter = "BCDFGHJKLMNPQRSTVWXZ";
     private final String vokaler = "AEIOUYÆÅØ";
     private final int columnCount = 4;
@@ -33,9 +37,25 @@ public class SpilFragment extends Fragment {
     private GridLayout vokalerGrid;
     private GridLayout konsonanterGrid;
 
-
     private SpilHandler spilOpstarter = SpilHandler.getInstance();
     private SpilLogik spilLogik;
+
+    String ordet;
+    View v;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.spillet, container, false);
+        initialize(v);
+        spilLogik = spilOpstarter.getSpilLogik();
+        spilLogik.addObserver(this);
+        brugerNavnTekst.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
+        gaetteFelt.setText(spilLogik.getSynligtOrd());
+
+
+        return v;
+    }
 
     private void initialize(View v){
         brugerNavnTekst = v.findViewById(R.id.brugernavnTekst);
@@ -79,19 +99,6 @@ public class SpilFragment extends Fragment {
         }
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.spillet, container, false);
-        initialize(v);
-        brugerNavnTekst.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
-        spilLogik = spilOpstarter.getSpilLogik();
-        gaetteFelt.setText(spilLogik.getSynligtOrd());
-
-
-        return v;
-    }
-
 
     //PROBLEM, skal have fat i metoder fra spilogik, men alt skal håndteres gennem SpilOpstarter???
     private void confirmBogstav(String bogstav, View v){
@@ -99,6 +106,7 @@ public class SpilFragment extends Fragment {
 
         if (spilLogik.gætBogstav(bogstav)){
             String tekst = "Bogstavet " + bogstav + " var korrekt!";
+
             int tid = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(v.getContext(), tekst, tid);
             toast.setGravity(Gravity.CENTER,0,0);
@@ -106,24 +114,25 @@ public class SpilFragment extends Fragment {
 
         }else{
             String tekst = "Bogstavet " + bogstav + " var forkert!";
+
             int tid = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(v.getContext(), tekst, tid);
             toast.setGravity(Gravity.CENTER,0,0);
             toast.show();
             opdaterGalgemand();
         }
-
-        if(spilLogik.erSpilletTabt()){
-            Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_taberFragment);
-        }
-        if (spilLogik.erSpilletVundet()){
-            Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_vinderFragment);
-        }
         gaetteFelt.setText(spilLogik.getSynligtOrd());
     }
 
-    public void opdaterGalgemand(){
+    public void tabtSpil(){
+        Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_taberFragment);
+    }
 
+    public void vandtSpil(){
+        Navigation.findNavController(v).navigate(R.id.action_spilFragment_til_vinderFragment);
+    }
+
+    public void opdaterGalgemand(){
             switch (spilLogik.getAntalForkerteBogstaver()){
                 case 0:
                     galgemand.setImageResource(R.drawable.galge);
@@ -150,5 +159,18 @@ public class SpilFragment extends Fragment {
                     galgemand.setImageResource(R.drawable.forkert6);
                     break;
             }
+    }
+
+
+
+    @Override
+    public void update(Observable o, Object arg) {
+        SpilLogikData data = (SpilLogikData) arg;
+        System.out.println(data.toString());
+        switch(data.getStatus()){
+            case ord: ordet = data.getOrdet(); break;
+            case vundet: vandtSpil(); break;
+            case tabt: tabtSpil(); break;
+        }
     }
 }
