@@ -41,6 +41,7 @@ public class SpilLogik extends Observable implements ISpilLogik{
             data.setAntalForsøg(String.valueOf(brugteBogstaver.size()));
             setChanged();
             notifyObservers(data);
+            SpilHandler.getInstance().gemHighscore(getAntalBrugteBogstaver());
         }
     }
 
@@ -134,10 +135,6 @@ public class SpilLogik extends Observable implements ISpilLogik{
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
             forkerteBogstaver.add(bogstav);
             checkTabtSpil();
-        }
-
-        if (erSpilletSlut()){
-            SpilHandler.getInstance().gemHighscore(getAntalBrugteBogstaver());
         }
 
         opdaterSynligtOrd();

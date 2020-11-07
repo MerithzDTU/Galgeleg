@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_nytSpilFragment_til_spilFragment"
             app:destination="@id/spilFragment" />
+        <action
+            android:id="@+id/action_nytSpilFragment_til_hovedmenuFragment"
+            app:destination="@id/hovedMenuFragment"/>
     </fragment>
     <fragment
         android:id="@+id/hjaelpFragment"

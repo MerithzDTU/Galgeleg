@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -73,6 +74,15 @@ public class NytSpilFragment extends Fragment {
 
             }
         });
+
+        OnBackPressedCallback tilbagekald = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                Navigation.findNavController(v).navigate(R.id.action_nytSpilFragment_til_hovedmenuFragment);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),tilbagekald);
+
 
         return v;
     }
