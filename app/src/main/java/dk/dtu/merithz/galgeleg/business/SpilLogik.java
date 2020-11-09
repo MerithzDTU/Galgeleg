@@ -57,16 +57,6 @@ public class SpilLogik extends Observable implements ISpilLogik{
 
 
     @Override
-    public ArrayList<String> getBrugteBogstaver() {
-        return brugteBogstaver;
-    }
-
-    @Override
-    public ArrayList<String> getForkerteBogstaver() {
-        return forkerteBogstaver;
-    }
-
-    @Override
     public String getSynligtOrd() {
         return synligtOrd;
     }
@@ -83,26 +73,6 @@ public class SpilLogik extends Observable implements ISpilLogik{
 
     @Override
     public int getAntalBrugteBogstaver(){return brugteBogstaver.size();}
-
-    @Override
-    public boolean erSidsteBogstavKorrekt() {
-        return sidsteBogstavVarKorrekt;
-    }
-
-    @Override
-    public boolean erSpilletVundet() {
-        return spilletErVundet;
-    }
-
-    @Override
-    public boolean erSpilletTabt() {
-        return spilletErTabt;
-    }
-
-    @Override
-    public boolean erSpilletSlut() {
-        return spilletErTabt || spilletErVundet;
-    }
 
     @Override
     public void opdaterSynligtOrd() {
