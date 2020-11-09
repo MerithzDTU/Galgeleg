@@ -51,6 +51,7 @@ public class SpilLogik extends Observable implements ISpilLogik{
             data.setStatus(SpilLogikStatus.tabt);
             setChanged();
             notifyObservers(data);
+            System.out.println("Her ved checktabtspil");
         }
     }
 

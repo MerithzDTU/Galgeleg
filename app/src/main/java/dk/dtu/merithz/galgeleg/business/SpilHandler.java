@@ -49,7 +49,7 @@ public class SpilHandler implements ISpilHandler {
     }
 
     @Override
-    public void initSpil(String sværhedsgrad, Activity activity) {
+    public final void initSpil(String sværhedsgrad, Activity activity) {
         highscoreSaver = HighscoreSaver.fromActivity(activity);
         try{
             muligeord = hentOrd.hentOrdFraRegneark(sværhedsgrad);
@@ -59,7 +59,7 @@ public class SpilHandler implements ISpilHandler {
     }
 
     @Override
-    public void startSpil() {
+    public final void startSpil() {
         String ordet = muligeord.get(new Random().nextInt(muligeord.size()));
         spilLogik = new SpilLogik(ordet);
     }
