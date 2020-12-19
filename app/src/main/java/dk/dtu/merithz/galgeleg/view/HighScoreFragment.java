@@ -70,7 +70,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 super(v);
                 brugerTextView = v.findViewById(R.id.highscoreBruger_TV);
                 scoreTextView = v.findViewById(R.id.highscoreScore_TV);
-
+                // Tilføj timestamp og ordet
             }
         }
 
@@ -91,6 +91,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             HighscoreDTO highscoreDTO = mDataset.get(position);
             holder.brugerTextView.setText(highscoreDTO.getBrugernavn());
             holder.scoreTextView.setText(String.valueOf(highscoreDTO.getScore()));
+            //Tilføj timestamp og ordet
     }
 
     @Override
