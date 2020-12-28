@@ -2,6 +2,7 @@ package dk.dtu.merithz.galgeleg.view;
 
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,7 @@ public class VinderFragment extends Fragment {
     private SpilLogik spilLogik;
 
     private KonfettiView konfettiView;
+    private MediaPlayer mediaPlayer;
 
     private void initialize(View v){
         brugerNavnVinder = v.findViewById(R.id.brugernavnVinder_TV);
@@ -54,7 +56,15 @@ public class VinderFragment extends Fragment {
         spilLogik = spilOpstarter.getSpilLogik();
         brugerNavnVinder.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
         vinderInfo.setText("Du gættede " + spilLogik.getOrdet() + " på " + spilLogik.getAntalBrugteBogstaver() + " forsøg.");
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.aida);
         startKonfetti();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mediaPlayer.release();
+            }
+        });
+        mediaPlayer.start();
         System.out.println(Resources.getSystem().getDisplayMetrics().widthPixels);
         nytspilKnap.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +97,6 @@ public class VinderFragment extends Fragment {
                 .addShapes(Shape.Square.INSTANCE, Shape.Circle.INSTANCE)
                 .addSizes(new Size(12, 5f))
                 .setPosition(0f,  width, 0f, 0f)
-                .streamFor(300, 5000L);
+                .streamFor(300, 10000L);
     }
 }

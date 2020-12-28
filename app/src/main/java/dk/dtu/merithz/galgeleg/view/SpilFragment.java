@@ -107,17 +107,13 @@ public class SpilFragment extends Fragment implements Observer {
         if (spilLogik.gætBogstav(bogstav)){
             String tekst = "Bogstavet " + bogstav + " var korrekt!";
 
-            int tid = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(v.getContext(), tekst, tid);
-            toast.setGravity(Gravity.CENTER,0,0);
+            Toast toast = Toast.makeText(v.getContext(), tekst, Toast.LENGTH_SHORT);
             toast.show();
 
         }else{
             String tekst = "Bogstavet " + bogstav + " var forkert!";
 
-            int tid = Toast.LENGTH_SHORT;
-            Toast toast = Toast.makeText(v.getContext(), tekst, tid);
-            toast.setGravity(Gravity.CENTER,0,0);
+            Toast toast = Toast.makeText(v.getContext(), tekst, Toast.LENGTH_SHORT);
             toast.show();
             opdaterGalgemand();
         }
