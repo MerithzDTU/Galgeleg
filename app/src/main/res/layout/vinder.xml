@@ -18,14 +18,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text=""
-            android:textSize="24sp"
+            android:fontFamily="@font/galgelegtekst"
+            android:textSize="52sp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/galgelegVinder"
             android:layout_width="match_parent"
             android:layout_height="206dp"
-            app:srcCompat="@drawable/galge_baggrund" />
+            app:srcCompat="@drawable/galge" />
 
         <TextView
             android:id="@+id/vinder_TV"
@@ -33,14 +34,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Du overlevede."
-            android:textSize="36sp" />
+            android:fontFamily="@font/galgelegtekst"
+            android:textColor="@color/ColorRed"
+            android:textSize="52sp" />
 
         <TextView
             android:id="@+id/vinderInfo_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="24sp" />
+            android:textSize="43sp"
+            android:fontFamily="@font/knapfont"
+            android:textColor="@color/RedRose"
+            />
 
         <Button
             android:id="@+id/vinderNytSpilKnap"

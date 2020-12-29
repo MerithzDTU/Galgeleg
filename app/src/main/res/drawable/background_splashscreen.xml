@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/colorWhite"/>
-    <item>
-        <bitmap android:src="@drawable/galge_baggrund"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"/>
+    <item android:drawable="@color/colorWhite"
+        android:gravity="fill"
+        />
+    <item android:gravity="fill_horizontal"
+        android:scaleType="fitCenter"
+        android:top="100dp"
+        android:bottom="100dp"
+        android:drawable="@drawable/galgeleg_splashscreen">
+
     </item>
 </layer-list>

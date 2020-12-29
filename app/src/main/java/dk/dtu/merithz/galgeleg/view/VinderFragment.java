@@ -55,7 +55,7 @@ public class VinderFragment extends Fragment {
         initialize(v);
         spilLogik = spilOpstarter.getSpilLogik();
         brugerNavnVinder.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
-        vinderInfo.setText("Du gættede " + spilLogik.getOrdet() + " på " + spilLogik.getAntalBrugteBogstaver() + " forsøg.");
+        vinderInfo.setText("Du gættede \n \"" + spilLogik.getOrdet() + "\" \n på " + spilLogik.getAntalBrugteBogstaver() + " forsøg.");
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.aida);
         startKonfetti();
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

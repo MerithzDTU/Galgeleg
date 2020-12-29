@@ -18,9 +18,9 @@ public class BogstavsKnap extends androidx.appcompat.widget.AppCompatButton {
     public BogstavsKnap(Context context) {
         super(context);
         setGravity(Gravity.CENTER);
-        setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        setBackgroundColor(getResources().getColor(R.color.ColorRed));
         setTextColor(getResources().getColor(R.color.colorWhite));
-        setTextSize(14);
+        setTextSize(32);
         setPadding(2,2,2,2);
         setTypeface(getTypeface(),Typeface.BOLD);
 

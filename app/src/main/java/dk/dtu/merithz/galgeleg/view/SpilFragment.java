@@ -1,5 +1,6 @@
 package dk.dtu.merithz.galgeleg.view;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -77,6 +79,7 @@ public class SpilFragment extends Fragment implements Observer {
             String bogstav = alfabet.substring(i,i+1);
             BogstavsKnap bogstavsKnap = new BogstavsKnap(v.getContext());
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            Typeface typeface = ResourcesCompat.getFont(getContext(),R.font.knapfont);
             int size = (int) (40 * getResources().getDisplayMetrics().density);
             int margin = (int) (2 * getResources().getDisplayMetrics().density);
             params.setGravity(Gravity.CENTER);
@@ -87,6 +90,7 @@ public class SpilFragment extends Fragment implements Observer {
             params.setMargins(margin,margin,margin,margin);
             bogstavsKnap.setLayoutParams(params);
             bogstavsKnap.setText(bogstav);
+            bogstavsKnap.setTypeface(typeface);
             gridLayout.addView(bogstavsKnap);
             knapper.put(bogstav,bogstavsKnap);
 
@@ -134,25 +138,25 @@ public class SpilFragment extends Fragment implements Observer {
                     galgemand.setImageResource(R.drawable.galge);
                     break;
                 case 1:
-                    galgemand.setImageResource(R.drawable.forkert1);
+                    galgemand.setImageResource(R.drawable.forkert1_sketch);
                     break;
                 case 2:
-                    galgemand.setImageResource(R.drawable.forkert2);
+                    galgemand.setImageResource(R.drawable.forkert2_sketch);
                     break;
                 case 3:
-                    galgemand.setImageResource(R.drawable.forkert3);
+                    galgemand.setImageResource(R.drawable.forkert3_sketch);
                     break;
                 case 4:
-                    galgemand.setImageResource(R.drawable.forkert4);
+                    galgemand.setImageResource(R.drawable.forkert4_sketch);
                     break;
                 case 5:
-                    galgemand.setImageResource(R.drawable.forkert5);
+                    galgemand.setImageResource(R.drawable.forkert5_sketch);
                     break;
                 case 6:
-                    galgemand.setImageResource(R.drawable.forkert6);
+                    galgemand.setImageResource(R.drawable.forkert6_sketch);
                     break;
                 default:
-                    galgemand.setImageResource(R.drawable.forkert6);
+                    galgemand.setImageResource(R.drawable.forkert6_sketch);
                     break;
             }
     }

@@ -10,29 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="24sp"
+        android:textSize="52sp"
         android:textStyle="bold"
+        android:fontFamily="@font/galgelegtekst"
         android:gravity="center"/>
 
     <ImageView
         android:id="@+id/galgelegTaber"
         android:layout_width="match_parent"
         android:layout_height="206dp"
-        app:srcCompat="@drawable/forkert6"/>
+        app:srcCompat="@drawable/forkert6_sketch"/>
 
     <TextView
         android:id="@+id/taber_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Du døde."
-        android:textSize="36sp"
+        android:text="Du tabte."
+        android:fontFamily="@font/galgelegtekst"
+        android:textSize="52sp"
+        android:textColor="@color/ColorRed"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/rigtigeord_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="42sp"
+        android:fontFamily="@font/knapfont"
+        android:textColor="@color/RedRose"
         android:gravity="center"/>
 
     <Button
