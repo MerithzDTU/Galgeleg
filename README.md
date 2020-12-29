@@ -17,6 +17,14 @@ https://stackoverflow.com/questions/45644828/how-do-i-fill-a-grid-with-imagebutt
 //RecyclerView\\
 https://developer.android.com/guide/topics/ui/layout/recyclerview
 
+//MediaPlayer\\
+https://stackoverflow.com/questions/18459122/play-sound-on-button-click-android
+
+//Force "portrait" orientation mode\\
+https://stackoverflow.com/questions/4885620/force-portrait-orientation-mode
+
+//RecyclerView Custom Typeface\\
+https://stackoverflow.com/questions/38454720/recyclerview-custom-typeface-inside-adapter
 
 >FONTS
 //PWFlymetothemoon Font by Peax Webdesign
@@ -43,6 +51,9 @@ K2 - Der skal være mindst 5 skærmbilleder hvor du selv har implementeret layou
 > GØR DET SAMME MED HOVEDMENU'S KNAPPERNE
 > Find skribbled font til edit text views
 > og få dem til at passe ind i spillet.
+> done
+
+>Font i EditText View i nytSpilFragment skal ændres, plus texthighlighter/cursor
 
 
 K3 - De generelle retningslinjer for brugerinteraktion på Android-platformen bør være nogenlunde overholdt - herunder tilbagenavigering eller opnavigering

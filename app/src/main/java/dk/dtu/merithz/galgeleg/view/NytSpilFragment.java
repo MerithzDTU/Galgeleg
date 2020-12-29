@@ -20,6 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -31,23 +33,34 @@ public class NytSpilFragment extends Fragment {
     Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
     SpilHandler spilOpstarter = SpilHandler.getInstance();
 
+    TextView indtastBrugerNavnTekst;
+    EditText indtastBrugerNavnFelt;
+    Spinner svaerhedsgradValg;
+    ProgressBar progressBar;
+    Button startSpil;
+
+    //Counter til progressbaren
+    int counter = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.nyt_spil,container,false);
 
-        TextView indtastBrugerNavnTekst = v.findViewById(R.id.indtastBrugerNavn_TV);
+        indtastBrugerNavnTekst = v.findViewById(R.id.indtastBrugerNavn_TV);
 
-        EditText indtastBrugerNavnFelt = v.findViewById(R.id.brugernavn_ET);
+        indtastBrugerNavnFelt = v.findViewById(R.id.brugernavn_ET);
 
-        Spinner svaerhedsgradValg = v.findViewById(R.id.svaerhedsgradSpinner);
+        svaerhedsgradValg = v.findViewById(R.id.svaerhedsgradSpinner);
 
-        ProgressBar progressBar = v.findViewById(R.id.indlaesningCirkel);
+        progressBar = v.findViewById(R.id.indlaesningCirkel);
+
+        startSpil = v.findViewById(R.id.startSpil);
 
         indtastBrugerNavnFelt.setText(spilOpstarter.getAktueltBrugerNavn());
 
-        Button startSpil = v.findViewById(R.id.startSpil);
+
         startSpil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +74,8 @@ public class NytSpilFragment extends Fragment {
                     toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
                 }else{
+                    startSpil.setEnabled(false);
+                    progressBar();
                     bgThread.execute(()->{
                         spilOpstarter.setAktueltBrugerNavn(brugernavn);
                         spilOpstarter.initSpil(svaerhedsgrad, getActivity());
@@ -85,5 +100,25 @@ public class NytSpilFragment extends Fragment {
 
 
         return v;
+    }
+
+    public void progressBar(){
+        //Gør progressbaren synlig igen
+        progressBar.setVisibility(View.VISIBLE);
+
+        //Timer til progressbaren
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                counter++;
+                progressBar.setProgress(counter);
+
+                if (counter == 100){
+                    t.cancel();
+                }
+            }
+        };
+        t.schedule(tt,0,100);
     }
 }

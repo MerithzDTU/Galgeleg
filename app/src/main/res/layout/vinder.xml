@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Du overlevede."
-            android:fontFamily="@font/galgelegtekst"
+            android:fontFamily="@font/knapfont"
             android:textColor="@color/ColorRed"
             android:textSize="52sp" />
 

@@ -89,7 +89,7 @@ public class VinderFragment extends Fragment {
     public void startKonfetti(){
         float width = Resources.getSystem().getDisplayMetrics().widthPixels;
         konfettiView.build()
-                .addColors(Color.BLUE, Color.WHITE, Color.RED)
+                .addColors(Color.parseColor("#4a0215"), Color.parseColor("#B7950B"), Color.parseColor("#4a0215"))
                 .setDirection(0.0, 359.0)
                 .setSpeed(1f, 10f)
                 .setFadeOutEnabled(true)

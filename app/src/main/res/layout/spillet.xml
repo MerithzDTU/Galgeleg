@@ -53,7 +53,8 @@
                 android:gravity="center"
                 android:text="Vokaler"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/knapfont"/>
 
             <GridLayout
                 android:id="@+id/vokaler"
@@ -76,7 +77,8 @@
                 android:gravity="center"
                 android:text="Konsonanter"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/knapfont"/>
 
             <GridLayout
                 android:id="@+id/konsonanter"

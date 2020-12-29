@@ -20,7 +20,11 @@
         android:layout_height="wrap_content"
         android:ems="9"
         android:inputType="textPersonName"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone"
+        android:fontFamily="@font/knapfont"
+        android:textCursorDrawable="@color/ColorRed"
+        android:textColor="@color/ColorRed"
+        />
 
     <TextView
         android:id="@+id/vaelgSvarhedsgrad_TV"
@@ -40,6 +44,12 @@
         />
 
 
+    <ProgressBar
+        android:id="@+id/indlaesningCirkel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        />
 
     <Button
         android:id="@+id/startSpil"
@@ -52,8 +62,5 @@
         android:alpha="0.7"
         android:fontFamily="@font/knapfont"/>
 
-    <ProgressBar
-        android:id="@+id/indlaesningCirkel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+
 </LinearLayout>
