@@ -20,13 +20,15 @@
             android:text=""
             android:fontFamily="@font/galgelegtekst"
             android:textSize="52sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/Black"/>
 
         <ImageView
             android:id="@+id/galgelegVinder"
             android:layout_width="match_parent"
-            android:layout_height="206dp"
-            app:srcCompat="@drawable/galge" />
+            android:layout_height="120dp"
+            app:srcCompat="@drawable/galge"
+            android:alpha="0.35"/>
 
         <TextView
             android:id="@+id/vinder_TV"
@@ -53,9 +55,11 @@
             android:layout_width="171dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorWhite"
             android:text="Nyt spil"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/ColorRed"
+            android:alpha="0.7"
+            android:fontFamily="@font/knapfont"/>
     </LinearLayout>
     <nl.dionsegijn.konfetti.KonfettiView
         android:id="@+id/viewKonfetti"

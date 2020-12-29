@@ -11,7 +11,9 @@
         android:layout_height="wrap_content"
         android:text="@string/indtast_brugernavn"
         android:textSize="15sp"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/knapfont"
+        android:textColor="@color/RedRose"/>
     <EditText
         android:id="@+id/brugernavn_ET"
         android:layout_width="170dp"
@@ -25,13 +27,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/vaelg_svaerhedsgrad"
-        android:layout_marginTop="70dp"/>
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/knapfont"
+        android:textColor="@color/RedRose"/>
 
     <Spinner
         android:id="@+id/svaerhedsgradSpinner"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:entries="@array/svaerhedsgrader"
+        android:theme="@style/SpinnerTheme"
         />
 
 
@@ -41,9 +46,11 @@
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:text="Start Spil"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorWhite"
-        android:layout_marginTop="150dp"/>
+        android:background="@color/colorWhite"
+        android:textColor="@color/ColorRed"
+        android:layout_marginTop="220dp"
+        android:alpha="0.7"
+        android:fontFamily="@font/knapfont"/>
 
     <ProgressBar
         android:id="@+id/indlaesningCirkel"
