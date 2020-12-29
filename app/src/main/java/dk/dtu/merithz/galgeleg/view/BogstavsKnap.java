@@ -23,9 +23,5 @@ public class BogstavsKnap extends androidx.appcompat.widget.AppCompatButton {
         setTextSize(32);
         setPadding(2,2,2,2);
         setTypeface(getTypeface(),Typeface.BOLD);
-
     }
-
-
-
 }

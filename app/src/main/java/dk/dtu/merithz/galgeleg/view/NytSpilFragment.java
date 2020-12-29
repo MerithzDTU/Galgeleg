@@ -84,9 +84,7 @@ public class NytSpilFragment extends Fragment {
                             Navigation.findNavController(v).navigate(R.id.action_nytSpilFragment_til_spilFragment);
                         });
                     });
-
                 }
-
             }
         });
 
@@ -97,7 +95,6 @@ public class NytSpilFragment extends Fragment {
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),tilbagekald);
-
 
         return v;
     }
@@ -111,12 +108,12 @@ public class NytSpilFragment extends Fragment {
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
-                counter++;
-                progressBar.setProgress(counter);
+            counter++;
+            progressBar.setProgress(counter);
 
-                if (counter == 100){
-                    t.cancel();
-                }
+            if (counter == 100){
+                t.cancel();
+            }
             }
         };
         t.schedule(tt,0,100);

@@ -66,7 +66,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private final Context context;
     private List<HighscoreDTO> mDataset;
 
-
         public static class MyViewHolder extends RecyclerView.ViewHolder{
             public TextView brugerTextView;
             public TextView scoreTextView;
@@ -99,7 +98,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             holder.scoreTextView.setTypeface(typeface);
             holder.brugerTextView.setText(highscoreDTO.getBrugernavn());
             holder.scoreTextView.setText(String.valueOf(highscoreDTO.getScore()));
-
     }
 
     @Override

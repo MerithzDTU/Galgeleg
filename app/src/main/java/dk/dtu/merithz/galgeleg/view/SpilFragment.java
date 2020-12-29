@@ -55,7 +55,6 @@ public class SpilFragment extends Fragment implements Observer {
         brugerNavnTekst.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
         gaetteFelt.setText(spilLogik.getSynligtOrd());
 
-
         return v;
     }
 
@@ -160,8 +159,6 @@ public class SpilFragment extends Fragment implements Observer {
                     break;
             }
     }
-
-
 
     @Override
     public void update(Observable o, Object arg) {
