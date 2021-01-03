@@ -2,6 +2,8 @@ package dk.dtu.merithz.galgeleg.business;
 
 import android.app.Activity;
 
+import org.json.JSONException;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -40,7 +42,7 @@ public class SpilHandler implements ISpilHandler {
         this.aktueltBrugerNavn = aktueltBrugerNavn;
     }
 
-    public void gemHighscore(int score, String ordet){
+    public void gemHighscore(int score, String ordet) throws JSONException {
         //Tilføj timestamp og ordet
         Date dato = new Date();
         HighscoreDTO highscore = new HighscoreDTO(aktueltBrugerNavn,score,dato,ordet);

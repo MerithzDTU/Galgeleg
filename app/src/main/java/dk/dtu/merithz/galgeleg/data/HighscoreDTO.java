@@ -36,6 +36,9 @@ public class HighscoreDTO {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("navn",brugernavn);
         long tid = timestamp.getTime();
+        jsonObject.put("timestamp",tid);
+        jsonObject.put("score",score);
+        jsonObject.put("ordet",ordet);
         return jsonObject.toString();
     }
 

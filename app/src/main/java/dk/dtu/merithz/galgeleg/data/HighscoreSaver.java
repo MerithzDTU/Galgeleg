@@ -7,6 +7,8 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -29,18 +31,18 @@ public class HighscoreSaver implements IHighscoreSaver{
     }
 
     @Override
-    public void gem(HighscoreDTO highscoreDTO) {
-        editor.putInt(highscoreDTO.getBrugernavn(),highscoreDTO.getScore());
+    public void gem(HighscoreDTO highscoreDTO) throws JSONException {
+        editor.putString(highscoreDTO.getBrugernavn(),highscoreDTO.toJSON());
         editor.apply();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
-    public List<HighscoreDTO> getHighscores() {
+    public List<HighscoreDTO> getHighscores() throws JSONException {
         Map<String, ?> highscoreEntries = sharedPref.getAll();
         List<HighscoreDTO> highscores = new ArrayList<>();
         for (Map.Entry<String,?> entry:highscoreEntries.entrySet()) {
-            highscores.add(new HighscoreDTO(entry.getKey(), Integer.parseInt(entry.getValue().toString())));
+            highscores.add(HighscoreDTO.fromJSON(entry.getValue().toString()));
         }
         highscores.sort(new Comparator<HighscoreDTO>() {
             @Override
