@@ -11,8 +11,10 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text=""
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/galgelegtekst"
+        android:textColor="@color/Black"/>
 
     <ImageView
         android:id="@+id/galgemand"
@@ -25,8 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:textColor="@color/ColorRed"
+        android:fontFamily="@font/knapfont"/>
 
 
     <LinearLayout
@@ -49,7 +53,8 @@
                 android:gravity="center"
                 android:text="Vokaler"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/knapfont"/>
 
             <GridLayout
                 android:id="@+id/vokaler"
@@ -72,7 +77,8 @@
                 android:gravity="center"
                 android:text="Konsonanter"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/knapfont"/>
 
             <GridLayout
                 android:id="@+id/konsonanter"

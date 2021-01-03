@@ -10,6 +10,9 @@
         android:layout_height="wrap_content"
         android:text="Gå tilbage.\nSpil spillet.\nUndgå at blive hængt."
         android:textSize="24sp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/ColorRed"
+        android:fontFamily="@font/knapfont"
+        android:layout_marginTop="100dp"/>
 
 </LinearLayout>

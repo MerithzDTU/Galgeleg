@@ -2,6 +2,8 @@ package dk.dtu.merithz.galgeleg.view;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,7 +55,7 @@ public class HighScoreFragment extends Fragment {
         layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new MyAdapter(highscoreSaver.getHighscores());
+        mAdapter = new MyAdapter(highscoreSaver.getHighscores(), getContext());
         recyclerView.setAdapter(mAdapter);
 
         return v;
@@ -60,22 +63,23 @@ public class HighScoreFragment extends Fragment {
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+    private final Context context;
     private List<HighscoreDTO> mDataset;
-
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
             public TextView brugerTextView;
             public TextView scoreTextView;
+
             public MyViewHolder(View v){
                 super(v);
                 brugerTextView = v.findViewById(R.id.highscoreBruger_TV);
                 scoreTextView = v.findViewById(R.id.highscoreScore_TV);
-                // Tilføj timestamp og ordet
             }
         }
 
-        public MyAdapter(List<HighscoreDTO> myDataset){
-            mDataset = myDataset;
+        public MyAdapter(List<HighscoreDTO> myDataset, Context context){
+            this.context = context;
+            this.mDataset = myDataset;
         }
 
     @NonNull
@@ -87,11 +91,13 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position ) {
             HighscoreDTO highscoreDTO = mDataset.get(position);
+            Typeface typeface = ResourcesCompat.getFont(context, R.font.knapfont);
+            holder.brugerTextView.setTypeface(typeface);
+            holder.scoreTextView.setTypeface(typeface);
             holder.brugerTextView.setText(highscoreDTO.getBrugernavn());
             holder.scoreTextView.setText(String.valueOf(highscoreDTO.getScore()));
-            //Tilføj timestamp og ordet
     }
 
     @Override

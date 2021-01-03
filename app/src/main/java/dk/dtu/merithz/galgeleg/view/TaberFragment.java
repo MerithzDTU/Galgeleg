@@ -46,7 +46,7 @@ public class TaberFragment extends Fragment {
         initialize(v);
         brugerNavnTaber.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
         spilLogik = spilOpstarter.getSpilLogik();
-        rigtigeord.setText("Ordet var: " + spilLogik.getOrdet());
+        rigtigeord.setText("Ordet var \n \"" + spilLogik.getOrdet() + "\"");
 
         nytspilKnap.setOnClickListener(new View.OnClickListener() {
             @Override

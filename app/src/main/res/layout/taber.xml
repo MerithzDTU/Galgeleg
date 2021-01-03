@@ -10,29 +10,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="24sp"
+        android:textSize="52sp"
         android:textStyle="bold"
+        android:fontFamily="@font/galgelegtekst"
+        android:textColor="@color/Black"
         android:gravity="center"/>
 
     <ImageView
         android:id="@+id/galgelegTaber"
         android:layout_width="match_parent"
-        android:layout_height="206dp"
-        app:srcCompat="@drawable/forkert6"/>
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/forkert6_sketch"
+        android:alpha="0.66"/>
 
     <TextView
         android:id="@+id/taber_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Du døde."
-        android:textSize="36sp"
+        android:text="Du tabte."
+        android:fontFamily="@font/knapfont"
+        android:textSize="52sp"
+        android:textColor="@color/ColorRed"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/rigtigeord_TV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="42sp"
+        android:fontFamily="@font/knapfont"
+        android:textColor="@color/RedRose"
         android:gravity="center"/>
 
     <Button
@@ -41,7 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:text="Nyt spil"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorWhite"/>
+        android:background="@color/colorWhite"
+        android:textColor="@color/ColorRed"
+        android:alpha="0.7"
+        android:fontFamily="@font/knapfont"/>
 
 </LinearLayout>

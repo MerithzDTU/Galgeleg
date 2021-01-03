@@ -47,7 +47,6 @@ public class HovedMenuFragment extends Fragment {
             }
         });
 
-
         return rod;
     }
 }

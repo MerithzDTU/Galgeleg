@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top">
-    <TextView
-        android:id="@+id/brugernavnVinder_TV"
+    android:layout_width="match_parent"
+    >
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/galgelegVinder"
+        <TextView
+            android:id="@+id/brugernavnVinder_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=""
+            android:fontFamily="@font/galgelegtekst"
+            android:textSize="52sp"
+            android:textStyle="bold"
+            android:textColor="@color/Black"/>
+
+        <ImageView
+            android:id="@+id/galgelegVinder"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:srcCompat="@drawable/galge"
+            android:alpha="0.35"/>
+
+        <TextView
+            android:id="@+id/vinder_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Du overlevede."
+            android:fontFamily="@font/knapfont"
+            android:textColor="@color/ColorRed"
+            android:textSize="52sp" />
+
+        <TextView
+            android:id="@+id/vinderInfo_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="43sp"
+            android:fontFamily="@font/knapfont"
+            android:textColor="@color/RedRose"
+            />
+
+        <Button
+            android:id="@+id/vinderNytSpilKnap"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:background="@color/colorWhite"
+            android:text="Nyt spil"
+            android:textColor="@color/ColorRed"
+            android:alpha="0.7"
+            android:fontFamily="@font/knapfont"/>
+    </LinearLayout>
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
         android:layout_width="match_parent"
-        android:layout_height="206dp"
-        app:srcCompat="@drawable/galge_baggrund"/>
-
-    <TextView
-        android:id="@+id/vinder_TV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Du overlevede."
-        android:textSize="36sp"
-        android:gravity="center"/>
-
-    <TextView
-        android:id="@+id/vinderInfo_TV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:gravity="center"/>
-
-    <Button
-        android:id="@+id/vinderNytSpilKnap"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="Nyt spil"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorWhite"/>
-
-</LinearLayout>
+        android:layout_height="match_parent" />
+</RelativeLayout>
