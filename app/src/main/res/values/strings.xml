@@ -2,14 +2,4 @@
     <string name="app_name">s195480 Christians Galgeleg</string>
     <string name="indtast_brugernavn">Indtast dit brugernavn:</string>
     <string name="vaelg_svaerhedsgrad">Vælg sværhedsgrad</string>
-    <string-array name="svaerhedsgrader">
-        <item>Let</item>
-        <item>Middel</item>
-        <item>Svær</item>
-    </string-array>
-    <string-array name="svaerhedsgraderVærdier">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
 </resources>

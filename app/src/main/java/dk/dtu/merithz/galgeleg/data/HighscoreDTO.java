@@ -10,14 +10,21 @@ public class HighscoreDTO {
     private int score;
     private Date timestamp;
     private String ordet;
+    private int antalForsøg;
+    private int antalForkert;
+    private Sværhedsgrad sværhedsgrad;
 
-    public HighscoreDTO(String brugernavn, int score, Date timestamp, String ordet){
+    public HighscoreDTO(String brugernavn, Date timestamp, String ordet, int antalForsøg, int antalForkert, Sværhedsgrad sværhedsgrad){
         this.brugernavn = brugernavn;
-        this.score = score;
         //Tilføj timestamp og ordet
         this.timestamp = timestamp;
         this.ordet = ordet;
+        this.antalForsøg = antalForsøg;
+        this.antalForkert = antalForkert;
+        this.sværhedsgrad = sværhedsgrad;
 
+        //beregning af score
+        score = (int) (((ordet.length()/antalForsøg) + (1.0 / ordet.length())) * 100) * sværhedsgrad.getValue();
     }
 
     //Factory-method til at pumpe json objekter ud.
@@ -25,11 +32,14 @@ public class HighscoreDTO {
         JSONObject jsonObj = new JSONObject(json);
         String navn = jsonObj.getString("navn");
         long timestamp = jsonObj.getLong("timestamp");
-        int score = jsonObj.getInt("score");
         Date date = new Date(timestamp);
         String ordet = jsonObj.getString("ordet");
+        int antalForsøg = jsonObj.getInt("antalForsøg");
+        int antalForkert = jsonObj.getInt("antalForkert");
+        int sværhedsgradIndex = jsonObj.getInt("sværhedsgrad");
+        Sværhedsgrad sværhedsgrad = Sværhedsgrad.values()[sværhedsgradIndex];
 
-        return new HighscoreDTO(navn,score,date,ordet);
+        return new HighscoreDTO(navn,date,ordet,antalForsøg,antalForkert,sværhedsgrad);
     }
 
     public String toJSON() throws JSONException {
@@ -37,8 +47,11 @@ public class HighscoreDTO {
         jsonObject.put("navn",brugernavn);
         long tid = timestamp.getTime();
         jsonObject.put("timestamp",tid);
-        jsonObject.put("score",score);
         jsonObject.put("ordet",ordet);
+        jsonObject.put("antalForsøg", antalForsøg);
+        jsonObject.put("antalForkert", antalForkert);
+        jsonObject.put("sværhedsgrad", sværhedsgrad.ordinal());
+
         return jsonObject.toString();
     }
 
@@ -55,11 +68,27 @@ public class HighscoreDTO {
 
     public String getOrdet() { return ordet;}
 
+    public int getAntalForsøg() {
+        return antalForsøg;
+    }
+
+    public int getAntalForkert() {
+        return antalForkert;
+    }
+
+    public Sværhedsgrad getSværhedsgrad() {
+        return sværhedsgrad;
+    }
+
     @Override
     public String toString() {
-        return "Highscore{" +
+        return "HighscoreDTO{" +
                 "brugernavn='" + brugernavn + '\'' +
                 ", score=" + score +
+                ", timestamp=" + timestamp +
+                ", ordet='" + ordet + '\'' +
+                ", antalForsøg=" + antalForsøg +
+                ", antalForkert=" + antalForkert +
                 '}';
     }
 }

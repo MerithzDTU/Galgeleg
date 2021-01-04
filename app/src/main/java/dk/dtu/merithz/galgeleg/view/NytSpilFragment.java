@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -27,6 +28,7 @@ import java.util.concurrent.Executors;
 
 import dk.dtu.merithz.galgeleg.R;
 import dk.dtu.merithz.galgeleg.business.SpilHandler;
+import dk.dtu.merithz.galgeleg.data.Sværhedsgrad;
 
 public class NytSpilFragment extends Fragment {
     Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
@@ -60,12 +62,13 @@ public class NytSpilFragment extends Fragment {
 
         indtastBrugerNavnFelt.setText(spilOpstarter.getAktueltBrugerNavn());
 
+        svaerhedsgradValg.setAdapter(new ArrayAdapter<>(v.getContext(), android.R.layout.simple_spinner_item, Sværhedsgrad.values()));
 
         startSpil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String brugernavn = indtastBrugerNavnFelt.getText().toString();
-                String svaerhedsgrad = getResources().getStringArray(R.array.svaerhedsgraderVærdier)[svaerhedsgradValg.getSelectedItemPosition()];
+                Sværhedsgrad svaerhedsgrad = (Sværhedsgrad) svaerhedsgradValg.getSelectedItem();
                 System.out.println(svaerhedsgrad);
                 if(brugernavn.length() < 1){
                     String tekst = "Indtast venligst et brugernavn";

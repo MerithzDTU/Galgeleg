@@ -26,6 +26,14 @@ https://stackoverflow.com/questions/4885620/force-portrait-orientation-mode
 //RecyclerView Custom Typeface\\
 https://stackoverflow.com/questions/38454720/recyclerview-custom-typeface-inside-adapter
 
+//ENUMS\\
+https://stackoverflow.com/questions/6692664/how-to-get-enum-value-from-index-in-java
+https://stackoverflow.com/questions/15436721/get-index-of-enum-from-string/15436799
+https://stackoverflow.com/questions/6667243/using-enum-values-as-string-literals
+
+//Date Formatter\\
+https://stackoverflow.com/questions/454315/how-to-format-date-and-time-in-android
+
 >FONTS
 //PWFlymetothemoon Font by Peax Webdesign
 https://www.1001fonts.com/pwflymetothemoon-font.html

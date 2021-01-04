@@ -47,7 +47,7 @@ public class HighscoreSaver implements IHighscoreSaver{
         highscores.sort(new Comparator<HighscoreDTO>() {
             @Override
             public int compare(HighscoreDTO o1, HighscoreDTO o2) {
-                return o1.getScore()-o2.getScore();
+                return o2.getScore()-o1.getScore();
             }
         });
         return highscores;

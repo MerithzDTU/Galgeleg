@@ -39,7 +39,6 @@
         android:id="@+id/svaerhedsgradSpinner"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:entries="@array/svaerhedsgrader"
         android:theme="@style/SpinnerTheme"
         />
 

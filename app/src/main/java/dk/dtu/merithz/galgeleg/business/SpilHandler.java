@@ -11,6 +11,7 @@ import java.util.Random;
 import dk.dtu.merithz.galgeleg.data.HentOrd;
 import dk.dtu.merithz.galgeleg.data.HighscoreDTO;
 import dk.dtu.merithz.galgeleg.data.HighscoreSaver;
+import dk.dtu.merithz.galgeleg.data.Sværhedsgrad;
 
 public class SpilHandler implements ISpilHandler {
     private static SpilHandler instance = null;
@@ -18,6 +19,7 @@ public class SpilHandler implements ISpilHandler {
     private HighscoreSaver highscoreSaver;
     private SpilLogik spilLogik;
     private List<String> muligeord;
+    private Sværhedsgrad sværhedsgrad;
     private String aktueltBrugerNavn = "";
 
 
@@ -42,10 +44,13 @@ public class SpilHandler implements ISpilHandler {
         this.aktueltBrugerNavn = aktueltBrugerNavn;
     }
 
-    public void gemHighscore(int score, String ordet) throws JSONException {
+    public void gemHighscore() throws JSONException {
         //Tilføj timestamp og ordet
         Date dato = new Date();
-        HighscoreDTO highscore = new HighscoreDTO(aktueltBrugerNavn,score,dato,ordet);
+        int antalForsøg = spilLogik.getAntalBrugteBogstaver();
+        int antalForkert = spilLogik.getAntalForkerteBogstaver();
+        String ordet = spilLogik.getOrdet();
+        HighscoreDTO highscore = new HighscoreDTO(aktueltBrugerNavn,dato,ordet,antalForsøg,antalForkert,sværhedsgrad);
         highscoreSaver.gem(highscore);
     }
 
@@ -54,10 +59,11 @@ public class SpilHandler implements ISpilHandler {
     }
 
     @Override
-    public final void initSpil(String sværhedsgrad, Activity activity) {
+    public final void initSpil(Sværhedsgrad sværhedsgrad, Activity activity) {
         highscoreSaver = HighscoreSaver.fromActivity(activity);
         try{
-            muligeord = hentOrd.hentOrdFraRegneark(sværhedsgrad);
+            muligeord = hentOrd.hentOrdFraRegneark(String.valueOf(sværhedsgrad.getValue()));
+            this.sværhedsgrad = sværhedsgrad;
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -67,5 +73,15 @@ public class SpilHandler implements ISpilHandler {
     public final void startSpil() {
         String ordet = muligeord.get(new Random().nextInt(muligeord.size()));
         spilLogik = new SpilLogik(ordet);
+    }
+
+    @Override
+    public void slutSpil() {
+        try {
+            gemHighscore();
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 }

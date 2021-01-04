@@ -1,5 +1,7 @@
 package dk.dtu.merithz.galgeleg.business;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.Observable;
 import static dk.dtu.merithz.galgeleg.business.SpilLogikData.SpilLogikStatus;
@@ -27,7 +29,7 @@ public class SpilLogik extends Observable implements ISpilLogik{
         logStatus();
     }
 
-    private void checkVundetSpil(){
+    private void checkVundetSpil() {
         spilletErVundet = true;
         for (int n = 0; n < ordet.length(); n++){
             String c = ordet.substring(n, n + 1);
@@ -41,7 +43,7 @@ public class SpilLogik extends Observable implements ISpilLogik{
             data.setAntalForsøg(String.valueOf(brugteBogstaver.size()));
             setChanged();
             notifyObservers(data);
-            SpilHandler.getInstance().gemHighscore(getAntalBrugteBogstaver());
+            SpilHandler.getInstance().slutSpil();
         }
     }
 

@@ -17,6 +17,8 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import org.json.JSONException;
+
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -96,7 +98,11 @@ public class SpilFragment extends Fragment implements Observer {
             bogstavsKnap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    confirmBogstav(bogstav, v);
+                    try {
+                        confirmBogstav(bogstav, v);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }
@@ -104,7 +110,7 @@ public class SpilFragment extends Fragment implements Observer {
 
 
     //PROBLEM, skal have fat i metoder fra spilogik, men alt skal håndteres gennem SpilOpstarter???
-    private void confirmBogstav(String bogstav, View v){
+    private void confirmBogstav(String bogstav, View v) throws JSONException {
         knapper.get(bogstav).setEnabled(false);
 
         if (spilLogik.gætBogstav(bogstav)){
