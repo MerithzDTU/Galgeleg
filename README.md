@@ -66,6 +66,7 @@ K2 - Der skal være mindst 5 skærmbilleder hvor du selv har implementeret layou
 
 K3 - De generelle retningslinjer for brugerinteraktion på Android-platformen bør være nogenlunde overholdt - herunder tilbagenavigering eller opnavigering
 >Tilbagenavigering er implementeret
+> TODO! Man kan gå tilbage til vinderfragment fra hovedmenuen, dette burde ikke være muligt!
 
 K4 - Der benyttes netværkskommunikation og flertrådet programmering (f.eks. hente en liste af ord fra DR eller fra et online regneark)
 >Done i NytSpilFragment.java
@@ -79,9 +80,10 @@ K6 - Der skal være en liste (f.eks. et RecyclerView der viser en highscoreliste
       det gælder ikke at formatere det hele i én enkelt streng og bare vise én streng per listeelement)
       
 >Det fundamentale er lavet, men en highscore skal have flere attributter
+>Done listen viser Bruger og Score
       
 K7 - Der skal kunne vælges noget fra en liste (f.eks. at ordet der skal gættes kan vælges fra en liste)
->Kravet er lidt utydeligt, men man kan vælge sværhedsgrad fra en spinner i NytSpilFragmentet.
+>Done, man kan hermed se en highscores attributter ved at klikke på ønskede highscore. Her kan man bl.a. se Ordet, sværhedsgrad, antal forkerte gæt, antal forsøg, timestamp osv.
 
 K8 - Der skal være flere ‘medrivende’ elementer, der engagerer brugeren og motiverer ham til at fortsætte med at spille. Mindst 2 af følgende 3 punkter er opfyldt:
 
@@ -89,7 +91,7 @@ K8 - Der skal være flere ‘medrivende’ elementer, der engagerer brugeren og 
       *Du viser en animation
       *Du bruger et 3. parts bibliotek - f.eks. viser konfetti når spilleren har vundet spillet, eller en lottie effekt (f.eks. fra lottiefiles.com)
 >Done, der er lavet konfetti og musik når man vinder
->Tilføj eventuelt animation og lyd når man dør.
+>Tilføj eventuelt animation og lyd når man dør. (? lav prioritet)
       
 K9 - App’ens navn skal starte med dit studienummer (ret i values/strings.xml så der står f.eks. <string name="app_name">s123456 Sørens Super Galgeleg</string>)
 >Done

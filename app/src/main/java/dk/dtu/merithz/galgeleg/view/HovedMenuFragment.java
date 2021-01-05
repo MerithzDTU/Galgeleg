@@ -1,6 +1,7 @@
 package dk.dtu.merithz.galgeleg.view;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,23 @@ public class HovedMenuFragment extends Fragment {
             }
         });
 
+        //Kode lånt fra https://stackoverflow.com/a/36128834
+        rod.setFocusableInTouchMode(true);
+        rod.requestFocus();
+        rod.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    //Hvis KEYCODE_BACK returnerer true, så vil det ikke være muligt at trykke på tilbage knappen fra fragmentet.
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return rod;
     }
+
 }
