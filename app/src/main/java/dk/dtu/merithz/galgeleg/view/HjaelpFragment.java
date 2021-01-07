@@ -15,6 +15,7 @@ import dk.dtu.merithz.galgeleg.R;
 
 public class HjaelpFragment extends Fragment {
     private TextView hjaelpTV;
+    private TextView scoreUdregningTV;
 
     @Nullable
     @Override
@@ -22,6 +23,7 @@ public class HjaelpFragment extends Fragment {
         View v = inflater.inflate(R.layout.hjaelp, container, false);
 
         hjaelpTV = v.findViewById(R.id.hjaelp_Tv);
+        scoreUdregningTV = v.findViewById(R.id.scoreUdregning_Tv);
 
         return v;
     }

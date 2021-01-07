@@ -8,11 +8,20 @@
         android:id="@+id/hjaelp_Tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gå tilbage.\nSpil spillet.\nUndgå at blive hængt.\nScore udregnes følgende\nscore = (ordets længde / antal forsøg) + (1 / ordets længde) * 100"
+        android:text="Gå tilbage.\nSpil spillet.\nUndgå at blive hængt."
         android:textSize="24sp"
         android:gravity="center"
         android:textColor="@color/ColorRed"
         android:fontFamily="@font/knapfont"
         android:layout_marginTop="100dp"/>
 
+    <TextView
+        android:id="@+id/scoreUdregning_Tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="\nScore udregnes følgende\nscore =\n (ordets længde / antal forsøg) + (1 / ordets længde) * 100 * sværhedsgraden\n\nSværhedsgrader: \n Let = 1 \n Middel = 2 \n Svær = 3"
+        android:gravity="center"
+        android:fontFamily="@font/knapfont"
+        android:textColor="@color/ColorRed"
+        />
 </LinearLayout>

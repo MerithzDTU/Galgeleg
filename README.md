@@ -2,6 +2,7 @@
 DTU Galgeleg project
 
 ---------Kilder--------
+-ANDROID-
 //Align to Text Views\\
 https://stackoverflow.com/questions/15575122/how-to-align-two-textviews-within-linearlayout-cell/15575222
 
@@ -17,24 +18,25 @@ https://stackoverflow.com/questions/45644828/how-do-i-fill-a-grid-with-imagebutt
 //RecyclerView\\
 https://developer.android.com/guide/topics/ui/layout/recyclerview
 
-//MediaPlayer\\
-https://stackoverflow.com/questions/18459122/play-sound-on-button-click-android
-
 //Force "portrait" orientation mode\\
 https://stackoverflow.com/questions/4885620/force-portrait-orientation-mode
 
 //RecyclerView Custom Typeface\\
 https://stackoverflow.com/questions/38454720/recyclerview-custom-typeface-inside-adapter
 
+//MediaPlayer\\
+https://stackoverflow.com/questions/18459122/play-sound-on-button-click-android
+
+//Date Formatter\\
+https://stackoverflow.com/questions/454315/how-to-format-date-and-time-in-android
+
+-Data-
 //ENUMS\\
 https://stackoverflow.com/questions/6692664/how-to-get-enum-value-from-index-in-java
 https://stackoverflow.com/questions/15436721/get-index-of-enum-from-string/15436799
 https://stackoverflow.com/questions/6667243/using-enum-values-as-string-literals
 
-//Date Formatter\\
-https://stackoverflow.com/questions/454315/how-to-format-date-and-time-in-android
-
->FONTS
+-FONTS-
 //PWFlymetothemoon Font by Peax Webdesign
 https://www.1001fonts.com/pwflymetothemoon-font.html
 //john F Sebastian Lettering Font\\
@@ -49,19 +51,17 @@ K1 - App’en skal kunne installeres på og fungere på en telefon med Android 7
 K2 - Der skal være mindst 5 skærmbilleder hvor du selv har implementeret layout i XML. Det skal være nogenlunde pænt.
 > Der er mindst 5 skærmbilleder
 > Hovedmenu, Nyt spil, vinder og taber skærmbilleder, highscore skærmbillede, hjælp skærmbillede.
-!!Kan evt. tilføje loading skærmbillede
+
 
 //!! LAYOUT IDE !!\\ 
-> læg hangman png filerne i en pdf og eksportér til remarkable
-> tegn på den med remarkable og få dem til at ligne 
-> eksporter dem tilbage og få den i hangman res
+> læg hangman png filerne i en pdf og eksportér til remarkable-eNoteBook
+> Overtegn hangman-billederne på remarkablen 
+> Eksporter dem tilbage i pdf/svg
+> Skalér billederne til rigtig størrelse og erstat de nuværende hangman billeder i drawable mappen
 >VOILÁ
-> GØR DET SAMME MED HOVEDMENU'S KNAPPERNE
-> Find skribbled font til edit text views
-> og få dem til at passe ind i spillet.
-> done
+> Tegn en splashscreen
+> Done
 
->Font i EditText View i nytSpilFragment skal ændres, plus texthighlighter/cursor
 
 
 K3 - De generelle retningslinjer for brugerinteraktion på Android-platformen bør være nogenlunde overholdt - herunder tilbagenavigering eller opnavigering
