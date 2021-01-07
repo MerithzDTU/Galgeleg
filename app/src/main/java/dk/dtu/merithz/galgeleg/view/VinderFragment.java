@@ -53,19 +53,27 @@ public class VinderFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.vinder, container, false);
         initialize(v);
+        //Får fat på spillogik igennem spilOpstarter
         spilLogik = spilOpstarter.getSpilLogik();
+
+        //Vinderens brugernavn
         brugerNavnVinder.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
+
+        //Tekst der vises til brugeren når spillet er vundet
         vinderInfo.setText("Du gættede \n \"" + spilLogik.getOrdet() + "\" \n på " + spilLogik.getAntalBrugteBogstaver() + " forsøg.");
+
+        //Laver mediaplayeren med lydfilen der skal afspilles når der vindes
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.aida);
         startKonfetti();
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            //Når lyden er færdig med at spille releases den
             @Override
             public void onCompletion(MediaPlayer mp) {
                 mediaPlayer.release();
             }
         });
         mediaPlayer.start();
-        System.out.println(Resources.getSystem().getDisplayMetrics().widthPixels);
+
         nytspilKnap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +82,7 @@ public class VinderFragment extends Fragment {
             }
         });
 
+        //Sørger for at når man kommer tilbage til hovedmenuen fra vinderfragmentet når man trykker return + fjerner konfetti
         OnBackPressedCallback tilbagekald = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -86,6 +95,7 @@ public class VinderFragment extends Fragment {
         return v;
     }
 
+    //Metode til funktionaliteten af konfettien
     public void startKonfetti(){
         float width = Resources.getSystem().getDisplayMetrics().widthPixels;
         konfettiView.build()

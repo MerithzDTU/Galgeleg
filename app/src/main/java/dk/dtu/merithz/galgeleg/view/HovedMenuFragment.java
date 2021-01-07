@@ -48,7 +48,11 @@ public class HovedMenuFragment extends Fragment {
             }
         });
 
-        //Kode lånt fra https://stackoverflow.com/a/36128834
+        /*
+        Kode lånt fra https://stackoverflow.com/a/36128834
+        Gør det muligt ikke at gå tilbage i stacken når man trykker tilbage
+        E.g. Spilleren er gået igennem nytspil->spil->vundet/tabt spil->Hovedmenuen, hvis dette ikke er lavet kan man gå tilbage fra hovedmenuen->tabt/vundet spil osv.
+         */
         rod.setFocusableInTouchMode(true);
         rod.requestFocus();
         rod.setOnKeyListener(new View.OnKeyListener() {

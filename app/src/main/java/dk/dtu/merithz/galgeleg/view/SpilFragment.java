@@ -75,6 +75,9 @@ public class SpilFragment extends Fragment implements Observer {
         initAlfabet(v,konsonanterGrid,konsonanter,columnCount);
     }
 
+    /*
+    Denne metode er til at lave hver knap fra alfabetet i et gridLayout
+     */
     public void initAlfabet(View v, GridLayout gridLayout, String alfabet, int columnCount){
         for (int i = 0; i < alfabet.length(); i++) {
             String bogstav = alfabet.substring(i,i+1);
@@ -109,8 +112,9 @@ public class SpilFragment extends Fragment implements Observer {
     }
 
 
-    //PROBLEM, skal have fat i metoder fra spilogik, men alt skal håndteres gennem SpilOpstarter???
+    //Metode til at opdatere UI når en knap er trykket, og derved ikke kan bruges mere.
     private void confirmBogstav(String bogstav, View v) throws JSONException {
+        //sætter knappen til at være disabled
         knapper.get(bogstav).setEnabled(false);
 
         if (spilLogik.gætBogstav(bogstav)){
@@ -166,6 +170,7 @@ public class SpilFragment extends Fragment implements Observer {
             }
     }
 
+    //Update metode til at holde styr på status mht. spillet
     @Override
     public void update(Observable o, Object arg) {
         SpilLogikData data = (SpilLogikData) arg;

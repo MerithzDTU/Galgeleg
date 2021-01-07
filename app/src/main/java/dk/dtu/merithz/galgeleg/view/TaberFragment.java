@@ -1,5 +1,6 @@
 package dk.dtu.merithz.galgeleg.view;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,8 @@ public class TaberFragment extends Fragment {
     private SpilHandler spilOpstarter = SpilHandler.getInstance();
     private SpilLogik spilLogik;
 
+    private MediaPlayer mediaPlayer;
+
     private void initialize(View v){
         brugerNavnTaber = v.findViewById(R.id.brugernavnTaber_TV);
         galgemand = v.findViewById(R.id.galgelegTaber);
@@ -47,6 +50,19 @@ public class TaberFragment extends Fragment {
         brugerNavnTaber.setText(String.format("%s",spilOpstarter.getAktueltBrugerNavn()));
         spilLogik = spilOpstarter.getSpilLogik();
         rigtigeord.setText("Ordet var \n \"" + spilLogik.getOrdet() + "\"");
+
+        //Laver mediaplayeren med lydfilen der skal afspilles når der tabes
+        mediaPlayer = MediaPlayer.create(getActivity(), R.raw.marche_funebre);
+
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            //Når lyden er færdig med at spille releases den
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mediaPlayer.release();
+            }
+        });
+        mediaPlayer.start();
+
 
         nytspilKnap.setOnClickListener(new View.OnClickListener() {
             @Override

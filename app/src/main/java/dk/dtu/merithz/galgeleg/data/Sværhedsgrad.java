@@ -1,5 +1,6 @@
 package dk.dtu.merithz.galgeleg.data;
 
+//ENUMs til sværhedsgraderne
 public enum Sværhedsgrad {
     LET ("Let",1),
     MIDDEL("Middel",2),

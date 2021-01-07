@@ -67,6 +67,7 @@ K2 - Der skal være mindst 5 skærmbilleder hvor du selv har implementeret layou
 K3 - De generelle retningslinjer for brugerinteraktion på Android-platformen bør være nogenlunde overholdt - herunder tilbagenavigering eller opnavigering
 >Tilbagenavigering er implementeret
 > TODO! Man kan gå tilbage til vinderfragment fra hovedmenuen, dette burde ikke være muligt!
+> Done
 
 K4 - Der benyttes netværkskommunikation og flertrådet programmering (f.eks. hente en liste af ord fra DR eller fra et online regneark)
 >Done i NytSpilFragment.java

@@ -30,6 +30,7 @@ public class HighscoreSaver implements IHighscoreSaver{
         return new HighscoreSaver(activity.getPreferences(Context.MODE_PRIVATE));
     }
 
+    //Metode til at gemme highscore med brugerens navn som key, og highscoreDTO som JSON object (metoden returnerer en String)
     @Override
     public void gem(HighscoreDTO highscoreDTO) throws JSONException {
         editor.putString(highscoreDTO.getBrugernavn(),highscoreDTO.toJSON());
@@ -39,11 +40,14 @@ public class HighscoreSaver implements IHighscoreSaver{
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public List<HighscoreDTO> getHighscores() throws JSONException {
+        //Laver et map med alle highscoreEntries fra sharedpreferences
         Map<String, ?> highscoreEntries = sharedPref.getAll();
+        //Laver en liste af HighscoreDTO, som jeg tilføjer til når jeg kører igennem sharedpreferences
         List<HighscoreDTO> highscores = new ArrayList<>();
         for (Map.Entry<String,?> entry:highscoreEntries.entrySet()) {
             highscores.add(HighscoreDTO.fromJSON(entry.getValue().toString()));
         }
+        //Sorterer scorerne efter højeste score.
         highscores.sort(new Comparator<HighscoreDTO>() {
             @Override
             public int compare(HighscoreDTO o1, HighscoreDTO o2) {

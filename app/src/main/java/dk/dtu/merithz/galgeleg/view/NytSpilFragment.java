@@ -31,10 +31,13 @@ import dk.dtu.merithz.galgeleg.business.SpilHandler;
 import dk.dtu.merithz.galgeleg.data.Sværhedsgrad;
 
 public class NytSpilFragment extends Fragment {
+    //Tråde
     Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
     Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
+    //SpilHandler til at håndtere spillet
     SpilHandler spilOpstarter = SpilHandler.getInstance();
 
+    //UI views
     TextView indtastBrugerNavnTekst;
     EditText indtastBrugerNavnFelt;
     Spinner svaerhedsgradValg;
@@ -67,18 +70,23 @@ public class NytSpilFragment extends Fragment {
         startSpil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Gemmer brugernavnet der befinder sig i tekstfeltet som en string
                 String brugernavn = indtastBrugerNavnFelt.getText().toString();
+                //Gemmer sværhedsgraden der er valgt som et objekt af Sværhedsgrad
                 Sværhedsgrad svaerhedsgrad = (Sværhedsgrad) svaerhedsgradValg.getSelectedItem();
-                System.out.println(svaerhedsgrad);
+                //tjekker om der er indtastet et brugernavn, hvis ikke så udskriver den en toast hvor der står at man skal indtaste et brugernavn
                 if(brugernavn.length() < 1){
                     String tekst = "Indtast venligst et brugernavn";
                     int tid = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(v.getContext(), tekst, tid);
-                    toast.setGravity(Gravity.CENTER,0,0);
                     toast.show();
                 }else{
+                    //Hvis der er indtastet et brugernavn
+                    //Sætter startspil knappen til at være disabled, så man ikke kan starter flere af de nedenstående tråde
                     startSpil.setEnabled(false);
+                    //Kalder på progressbaren
                     progressBar();
+                    //eksekverer en baggrundstråd med de brugerens valg, initialiserer & starter spillet
                     bgThread.execute(()->{
                         spilOpstarter.setAktueltBrugerNavn(brugernavn);
                         spilOpstarter.initSpil(svaerhedsgrad, getActivity());
@@ -101,7 +109,7 @@ public class NytSpilFragment extends Fragment {
 
         return v;
     }
-
+    //Metode til progressbaren
     public void progressBar(){
         //Gør progressbaren synlig igen
         progressBar.setVisibility(View.VISIBLE);
